@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jejuuniv.smp.model.Product;
 import com.jejuuniv.smp.model.User;
-import com.jejuuniv.smp.repository.UserDao;
+import com.jejuuniv.smp.repository.user.UserDao;
 
 @Service
 public class ProductListServiceImpl implements ProductListService {
@@ -24,8 +24,8 @@ public class ProductListServiceImpl implements ProductListService {
 		User user = userDao.findById("1");
 
 		for (int i = 0; i < 50; i++) {
-			list.add(new Product("" + i, user.getId(), user.getName(), user
-					.getPassword()));
+			list.add(new Product("" + i, user.getPassword(), user.getId(), user
+					.getId(), user.getId(), user.getName(), user.getPassword()));
 		}
 		return list;
 	}

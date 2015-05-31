@@ -1,4 +1,4 @@
-package com.jejuuniv.smp.repository;
+package com.jejuuniv.smp.repository.user;
 
 import java.util.List;
 

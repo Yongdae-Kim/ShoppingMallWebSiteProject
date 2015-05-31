@@ -44,7 +44,7 @@
 				<div class="col-md-12">
 					<!-- Advanced Tables -->
 					<div class="panel panel-default">
-						<div class="panel-heading">User Usage Count Tables</div>
+						<div class="panel-heading">Product List Tables</div>
 						<div class="panel-body">
 							<div class="table-responsive">
 								<table
@@ -52,30 +52,25 @@
 									id="dataTables-example">
 									<thead>
 										<tr>
-											<th>Encrypted User ID</th>
-											<th>My Favorites 1</th>
-											<th>My Favorites 2</th>
-											<th>Food Style</th>
-											<th>Charts</th>
+											<th>Image</th>
+											<th>Name & Description</th>
+											<th>Price</th>
+											<th>Date</th>
+											<th>Seller</th>
 										</tr>
 									</thead>
 									<tbody>
-
 										<c:forEach var="product" items="${myList}" varStatus="status">
 											<tr>
-
-												<td>${product.name}</td>
-												<td>${product.description}</td>
+												<td>${product.imgSrc}</td>
+												<td>${product.name}+${product.description}</td>
 												<td>${product.price}</td>
 												<td>${product.date}</td>
-												<td><form action="chart" method="POST">
-														<input class="hide" name=id value=${product.name } /> <input
-															class="hide" name=name value=${product.description } />
-														<input class="hide" name=password value=${product.price } />
-														<input class="btn btn-custom btn-one" type="submit"
-															value="Detail" /><input type="hidden"
-															name="${_csrf.parameterName}" value="${_csrf.token}" />
-													</form></td>
+												<td>${product.seller}</td>
+												<!-- <form action="chart" method="POST">
+													<input class="btn btn-custom btn-one" type="submit"
+														value="Detail" />
+												</form> -->
 											</tr>
 										</c:forEach>
 									</tbody>
