@@ -10,6 +10,7 @@
 	<properties>
 		<jdk.version>1.7</jdk.version>
 		<spring.version>4.0.3.RELEASE</spring.version>
+		<org.springframework-security-version>3.2.3.RELEASE</org.springframework-security-version>
 		<junit.version>4.11</junit.version>
 		<mysql.version>5.1.30</mysql.version>
 		<mybatis.version>3.2.7</mybatis.version>

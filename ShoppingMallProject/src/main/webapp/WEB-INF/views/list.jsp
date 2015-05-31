@@ -61,17 +61,18 @@
 									</thead>
 									<tbody>
 
-										<c:forEach var="user" items="${myList}" varStatus="status">
+										<c:forEach var="product" items="${myList}" varStatus="status">
 											<tr>
-												<td>${user.id}</td>
-												<td>${user.name}</td>
-												<td>${user.password}</td>
-												<td>${user}</td>
+
+												<td>${product.name}</td>
+												<td>${product.description}</td>
+												<td>${product.price}</td>
+												<td>${product.date}</td>
 												<td><form action="chart" method="POST">
-														<input class="hide" name=id value=${user.id } /> <input
-															class="hide" name=name value=${user.name } /> <input
-															class="hide" name=password value=${user.password } /> <input
-															class="btn btn-custom btn-one" type="submit"
+														<input class="hide" name=id value=${product.name } /> <input
+															class="hide" name=name value=${product.description } />
+														<input class="hide" name=password value=${product.price } />
+														<input class="btn btn-custom btn-one" type="submit"
 															value="Detail" /><input type="hidden"
 															name="${_csrf.parameterName}" value="${_csrf.token}" />
 													</form></td>

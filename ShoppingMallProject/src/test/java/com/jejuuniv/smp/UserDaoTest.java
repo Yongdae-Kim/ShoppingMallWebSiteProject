@@ -1,8 +1,9 @@
 package com.jejuuniv.smp;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Random;
 
@@ -14,10 +15,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.jejuuniv.smp.model.User;
-import com.jejuuniv.smp.model.UserDao;
+import com.jejuuniv.smp.repository.UserDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "/com/jejuuniv/smp/daoFactory.xml")
+@ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml")
 public class UserDaoTest {
 
 	private String name;
@@ -33,31 +34,43 @@ public class UserDaoTest {
 	}
 
 	@Test
-	public void get() throws SQLException, ClassNotFoundException {
-		String id = "1";
-		User user = userDao.findById(id);
-		assertEquals(id, user.getId());
-		assertEquals(name, user.getName());
-		assertEquals(password, user.getPassword());
-	}
+	public void add() {
 
-	@Test
-	public void add() throws ClassNotFoundException, SQLException {
 		String id = String.valueOf(new Random().nextInt());
-		User user = new User(id, name, password);
 
+		User user = new User(id, name, password);
 		user.setId(id);
 		user.setName(name);
 		user.setPassword(password);
+
 		userDao.insert(user);
+
 		User addedUser = userDao.findById(id);
+
 		assertEquals(id, addedUser.getId());
 		assertEquals(name, addedUser.getName());
 		assertEquals(password, addedUser.getPassword());
 	}
 
 	@Test
-	public void delete() throws SQLException {
+	public void getOne() {
+
+		String id = "1";
+		User user = userDao.findById(id);
+
+		assertEquals(id, user.getId());
+		assertEquals(name, user.getName());
+		assertEquals(password, user.getPassword());
+	}
+
+	@Test
+	public void getAll() {
+		List<User> users = userDao.findAll();
+		assertTrue(users.size() > 0);
+	}
+
+	@Test
+	public void delete() {
 		String id = String.valueOf(new Random().nextInt());
 		User user = new User(id, name, password);
 
@@ -71,9 +84,4 @@ public class UserDaoTest {
 		assertNull(deletedUser);
 	}
 
-	@Test
-	public void findAll() {
-		List<User> users = userDao.findAll();
-		assertTrue(users.size() > 0);
-	}
 }
