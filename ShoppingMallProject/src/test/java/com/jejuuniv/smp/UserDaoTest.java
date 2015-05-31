@@ -17,10 +17,12 @@ import com.jejuuniv.smp.model.User;
 import com.jejuuniv.smp.model.UserDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "daoFactory.xml")
+@ContextConfiguration(locations = "/com/jejuuniv/smp/daoFactory.xml")
 public class UserDaoTest {
+
 	private String name;
 	private String password;
+
 	@Autowired
 	private UserDao userDao;
 
@@ -33,7 +35,7 @@ public class UserDaoTest {
 	@Test
 	public void get() throws SQLException, ClassNotFoundException {
 		String id = "1";
-		User user = userDao.get(id);
+		User user = userDao.findById(id);
 		assertEquals(id, user.getId());
 		assertEquals(name, user.getName());
 		assertEquals(password, user.getPassword());
@@ -47,8 +49,8 @@ public class UserDaoTest {
 		user.setId(id);
 		user.setName(name);
 		user.setPassword(password);
-		userDao.add(user);
-		User addedUser = userDao.get(id);
+		userDao.insert(user);
+		User addedUser = userDao.findById(id);
 		assertEquals(id, addedUser.getId());
 		assertEquals(name, addedUser.getName());
 		assertEquals(password, addedUser.getPassword());
@@ -62,10 +64,10 @@ public class UserDaoTest {
 		user.setId(id);
 		user.setName(name);
 		user.setPassword(password);
-		userDao.add(user);
+		userDao.insert(user);
 
 		userDao.delete(id);
-		User deletedUser = userDao.get(id);
+		User deletedUser = userDao.findById(id);
 		assertNull(deletedUser);
 	}
 

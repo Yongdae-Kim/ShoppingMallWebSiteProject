@@ -15,12 +15,12 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User get(final String id) {
+	public User findById(final String id) {
 		return sqlSession.<User> selectOne("findById", id);
 	}
 
 	@Override
-	public void add(final User user) {
+	public void insert(final User user) {
 		sqlSession.insert("insert", user);
 	}
 
