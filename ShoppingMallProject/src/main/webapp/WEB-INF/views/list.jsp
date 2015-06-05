@@ -62,7 +62,7 @@
 									<tbody>
 										<c:forEach var="product" items="${myList}" varStatus="status">
 											<tr>
-												<td>${product.imgSrc}</td>
+												<td>${product.img}</td>
 												<td>${product.name}+${product.description}</td>
 												<td>${product.price}</td>
 												<td>${product.date}</td>

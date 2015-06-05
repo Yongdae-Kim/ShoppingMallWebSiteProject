@@ -4,22 +4,29 @@
 <mapper namespace="com.jejuuniv.smp.repository.product.ProductDao">
 	<select id="findAll" resultType="Product">
 		select
-		id, name, password
+		id, img, name,
+		description, price, date, seller
 		from
-		user
+		product
 	</select>
+
 	<insert id="insert" parameterType="Product">
-		insert into user(id, name,
-		password) values(#{id}, #{name}, #{password})
+		insert into product(id, img,
+		name, description, price, date, seller)
+		values(#{id}, #{img}, #{name},
+		#{description}, #{price}, #{date}, #{seller})
 	</insert>
+
 	<delete id="delete">
-		delete from user where id = #{id}
+		delete from product where id = #{id}
 	</delete>
+
 	<select id="findById" resultType="Product">
 		select
-		id, name, password
+		id, img, name,
+		description, price, date, seller
 		from
-		user where id = #{id}
+		product where id = #{id}
 	</select>
 
 </mapper>

@@ -1,13 +1,18 @@
 package com.jejuuniv.smp.model;
 
+import java.util.Date;
+
 public class Product {
 
 	private String id;
 
-	private String imgSrc;
+	private String img;
+
 	private String name;
 	private String description;
-	private String price;
+
+	private int price;
+
 	private String date;
 	private String seller;
 
@@ -15,11 +20,11 @@ public class Product {
 		super();
 	}
 
-	public Product(String id, String imgSrc, String name, String description,
-			String price, String date, String seller) {
+	public Product(String id, String img, String name, String description,
+			int price, String date, String seller) {
 		super();
 		this.id = id;
-		this.imgSrc = imgSrc;
+		this.img = img;
 		this.name = name;
 		this.description = description;
 		this.price = price;
@@ -35,12 +40,12 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getImgSrc() {
-		return imgSrc;
+	public String getImg() {
+		return img;
 	}
 
-	public void setImgSrc(String imgSrc) {
-		this.imgSrc = imgSrc;
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public String getName() {
@@ -59,11 +64,11 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 

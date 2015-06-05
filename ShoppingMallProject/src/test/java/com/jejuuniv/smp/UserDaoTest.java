@@ -39,9 +39,10 @@ public class UserDaoTest {
 		String id = String.valueOf(new Random().nextInt());
 
 		User user = new User(id, name, password);
-		user.setId(id);
-		user.setName(name);
-		user.setPassword(password);
+
+		// user.setId(id);
+		// user.setName(name);
+		// user.setPassword(password);
 
 		userDao.insert(user);
 
@@ -71,17 +72,19 @@ public class UserDaoTest {
 
 	@Test
 	public void delete() {
+
 		String id = String.valueOf(new Random().nextInt());
+
 		User user = new User(id, name, password);
 
-		user.setId(id);
-		user.setName(name);
-		user.setPassword(password);
+		// user.setId(id);
+		// user.setName(name);
+		// user.setPassword(password);
+
 		userDao.insert(user);
 
 		userDao.delete(id);
 		User deletedUser = userDao.findById(id);
 		assertNull(deletedUser);
 	}
-
 }
