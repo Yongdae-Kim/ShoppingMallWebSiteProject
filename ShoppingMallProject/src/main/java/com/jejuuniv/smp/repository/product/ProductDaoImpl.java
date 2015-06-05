@@ -17,7 +17,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public Product findById(String id) {
+	public Product findById(long id) {
 		return sqlSession.<Product> selectOne("findById", id);
 	}
 
@@ -27,7 +27,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(long id) {
 		sqlSession.delete("delete", id);
 	}
 

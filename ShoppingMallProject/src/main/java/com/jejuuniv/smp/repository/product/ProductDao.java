@@ -8,11 +8,11 @@ import com.jejuuniv.smp.model.Product;
 
 @Repository
 public interface ProductDao {
-	public abstract Product findById(String id);
+	public abstract Product findById(long id);
 
 	public abstract void insert(Product product);
 
-	public abstract void delete(String id);
+	public abstract void delete(long id);
 
 	public abstract List<Product> findAll();
 }

@@ -1,12 +1,12 @@
 package com.jejuuniv.smp;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +22,7 @@ import com.jejuuniv.smp.repository.product.ProductDao;
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml")
 public class ProductDaoTest {
 
-	private String id;
+	private long id;
 
 	private String img;
 	private String name;
@@ -36,7 +36,8 @@ public class ProductDaoTest {
 
 	@Before
 	public void setup() {
-		id = String.valueOf(new Random().nextInt());
+
+		id = 1;
 
 		img = "test";
 		name = "Å°º¸µå";
@@ -52,7 +53,7 @@ public class ProductDaoTest {
 	@Test
 	public void add() {
 
-		Product product = new Product(id, img, name, description, price, date,
+		Product product = new Product(img, name, description, price, date,
 				seller);
 
 		productDao.insert(product);
@@ -70,8 +71,6 @@ public class ProductDaoTest {
 
 	@Test
 	public void getOne() {
-
-		String id = "-990630615";
 
 		Product product = productDao.findById(id);
 
@@ -94,7 +93,7 @@ public class ProductDaoTest {
 	@Test
 	public void delete() {
 
-		Product product = new Product(id, img, name, description, price, date,
+		Product product = new Product(img, name, description, price, date,
 				seller);
 
 		productDao.insert(product);

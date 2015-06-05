@@ -1,10 +1,8 @@
 package com.jejuuniv.smp.model;
 
-import java.util.Date;
-
 public class Product {
 
-	private String id;
+	private long id;
 
 	private String img;
 
@@ -20,10 +18,9 @@ public class Product {
 		super();
 	}
 
-	public Product(String id, String img, String name, String description,
-			int price, String date, String seller) {
+	public Product(String img, String name, String description, int price,
+			String date, String seller) {
 		super();
-		this.id = id;
 		this.img = img;
 		this.name = name;
 		this.description = description;
@@ -32,11 +29,11 @@ public class Product {
 		this.seller = seller;
 	}
 
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
