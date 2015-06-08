@@ -2,6 +2,7 @@ package com.jejuuniv.smp;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,45 +17,37 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.jejuuniv.smp.model.Product;
-import com.jejuuniv.smp.repository.product.ProductDao;
+import com.jejuuniv.smp.repository.products.ProductDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml")
 public class ProductDaoTest {
-
-	private long id;
-
-	private String img;
-	private String name;
-	private String description;
-	private int price;
-	private String date;
-	private String seller;
 
 	@Autowired
 	private ProductDao productDao;
 
 	@Before
 	public void setup() {
-
-		id = 1;
-
-		img = "test";
-		name = "키보드";
-		description = "기계식키보드";
-		price = 100000;
-
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		date = dateFormat.format(new Date());
-
-		seller = "scratchback";
 	}
 
 	@Test
-	public void add() {
+	public void insertProductTesting() {
+
+		long id = 100;
+
+		String img = "insert image";
+		String name = "insert name";
+		String description = "insert 1234";
+		int price = 1000;
+
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String date = dateFormat.format(new Date());
+
+		String seller = "scratchback";
 
 		Product product = new Product(img, name, description, price, date,
 				seller);
+		product.setId(id);
 
 		productDao.insertProduct(product);
 
@@ -66,16 +59,28 @@ public class ProductDaoTest {
 		assertEquals(price, addedProduct.getPrice());
 		assertEquals(date, addedProduct.getDate());
 		assertEquals(seller, addedProduct.getSeller());
-
 	}
 
 	@Test
-	public void getOne() {
+	public void findProductByIdTesting() {
+
+		long id = 100;
+
+		String img = "insert image";
+		String name = "insert name";
+		String description = "insert 1234";
+		int price = 1000;
+
+		// DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		// String date = dateFormat.format(new Date());
+
+		String seller = "scratchback";
 
 		Product product = productDao.findProductById(id);
 
 		assertEquals(id, product.getId());
 		assertEquals(img, product.getImg());
+		assertEquals(name, product.getName());
 		assertEquals(description, product.getDescription());
 		assertEquals(price, product.getPrice());
 		// assertEquals(date, product.getDate());
@@ -83,15 +88,28 @@ public class ProductDaoTest {
 	}
 
 	@Test
-	public void getAll() {
+	public void findAllProductsTesting() {
 		List<Product> products = productDao.findAllProducts();
 		for (Product product : products) {
 			System.out.println(product.getId());
 		}
+		assertTrue(products.size() > 0);
 	}
 
 	@Test
-	public void delete() {
+	public void deleteProductTesting() {
+
+		long id = 200;
+
+		String img = "delete image";
+		String name = "delete name";
+		String description = "delete 1234";
+		int price = 2000;
+
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String date = dateFormat.format(new Date());
+
+		String seller = "scratchback";
 
 		Product product = new Product(img, name, description, price, date,
 				seller);

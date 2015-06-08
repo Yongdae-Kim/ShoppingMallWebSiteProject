@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 import com.jejuuniv.smp.model.User;
 import com.jejuuniv.smp.model.UserRole;
 import com.jejuuniv.smp.model.UserRole.Role;
-import com.jejuuniv.smp.repository.user.UserDao;
-import com.jejuuniv.smp.repository.userrole.UserRoleDao;
+import com.jejuuniv.smp.repository.user_roles.UserRoleDao;
+import com.jejuuniv.smp.repository.users.UserDao;
 
 @Service
 public class SignupServiceImpl implements SignupService {
@@ -22,7 +22,7 @@ public class SignupServiceImpl implements SignupService {
 	public boolean addUser(User user) {
 		boolean isUserAdded = false;
 
-		if (userDao.findUserById(user.getName()) == null) {
+		if (userDao.findUserByName(user.getName()) == null) {
 			userDao.insertUser(user);
 			UserRole userRole = new UserRole(user.getName(), Role.ROLE_USER);
 			userRoleDao.insertUserRole(userRole);

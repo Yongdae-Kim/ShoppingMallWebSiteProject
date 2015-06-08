@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jejuuniv.smp.repository.user_basket.UserBasketDao">
+	<select id="findUsersProductIds" resultType="String">
+		select productId
+		from
+		user_basket
+		where userName = #{userName}
+	</select>
+	<insert id="insertUsersProduct">
+		insert into
+		user_basket(userName,
+		productId)
+		values(#{userName}, #{productId})
+	</insert>
+	<delete id="deleteUsersProduct">
+		delete
+		from user_basket
+		where productId = #{productId}
+	</delete>
+	<select id="isExistedUsersProduct" resultType="int">
+		select count(*)
+		from user_basket
+		where productId = #{productId}
+	</select>
+</mapper>
+

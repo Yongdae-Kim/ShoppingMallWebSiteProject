@@ -1,4 +1,4 @@
-package com.jejuuniv.smp.repository.user;
+package com.jejuuniv.smp.repository.users;
 
 import java.util.List;
 
@@ -17,8 +17,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User findUserById(String name) {
-		return sqlSession.<User> selectOne("findUserById", name);
+	public User findUserByName(String name) {
+		return sqlSession.<User> selectOne("findUserByName", name);
 	}
 
 	@Override

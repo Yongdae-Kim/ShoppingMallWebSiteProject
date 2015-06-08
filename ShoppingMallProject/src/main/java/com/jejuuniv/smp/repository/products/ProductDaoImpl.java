@@ -1,4 +1,4 @@
-package com.jejuuniv.smp.repository.product;
+package com.jejuuniv.smp.repository.products;
 
 import java.util.List;
 

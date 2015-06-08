@@ -13,7 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.jejuuniv.smp.model.User;
-import com.jejuuniv.smp.repository.user.UserDao;
+import com.jejuuniv.smp.repository.users.UserDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml")
@@ -23,9 +23,9 @@ public class UserDaoTest {
 	private UserDao userDao;
 
 	@Test
-	public void exist() {
+	public void isExistedUserTesting() {
 
-		String name = "kyd";
+		String name = "scratchback@hanmail.net";
 
 		int userCount = userDao.isExistedUser(name);
 		boolean isExisted;
@@ -36,20 +36,20 @@ public class UserDaoTest {
 			isExisted = false;
 		}
 
-		assertEquals(true, isExisted);
+		assertTrue(isExisted);
 	}
 
 	@Test
-	public void add() throws Exception {
+	public void insertUserTesting() throws Exception {
 
-		String name = "kyd";
-		String password = "1111";
+		String name = "scratchback@hanmail.net";
+		String password = "1234";
 
 		if (!(userDao.isExistedUser(name) >= 1)) {
 			User user = new User(name, password);
 			userDao.insertUser(user);
 
-			User addedUser = userDao.findUserById(name);
+			User addedUser = userDao.findUserByName(name);
 
 			assertEquals(name, addedUser.getName());
 			assertEquals(password, addedUser.getPassword());
@@ -57,27 +57,30 @@ public class UserDaoTest {
 	}
 
 	@Test
-	public void getOne() throws Exception {
+	public void findUserByNameTesting() throws Exception {
 
-		String name = "kyd";
-		String password = "1111";
+		String name = "scratchback@hanmail.net";
+		String password = "1234";
 
-		User user = userDao.findUserById(name);
+		User user = userDao.findUserByName(name);
 
 		assertEquals(name, user.getName());
 		assertEquals(password, user.getPassword());
 	}
 
 	@Test
-	public void getAll() {
+	public void findAllUsersTesting() {
 		List<User> users = userDao.findAllUsers();
+		for (User user : users) {
+			System.out.println(user.getName());
+		}
 		assertTrue(users.size() > 0);
 	}
 
 	@Test
-	public void delete() {
+	public void deleteUserTesting() {
 
-		String name = "hkj";
+		String name = "test@hanmail.net";
 		String password = "1111";
 
 		User user = new User(name, password);
@@ -85,7 +88,7 @@ public class UserDaoTest {
 		userDao.insertUser(user);
 
 		userDao.deleteUser(name);
-		User deletedUser = userDao.findUserById(name);
+		User deletedUser = userDao.findUserByName(name);
 		assertNull(deletedUser);
 	}
 }

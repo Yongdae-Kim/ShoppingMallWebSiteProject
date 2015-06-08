@@ -1,4 +1,4 @@
-package com.jejuuniv.smp.repository.userrole;
+package com.jejuuniv.smp.repository.user_roles;
 
 import java.util.List;
 
@@ -17,8 +17,8 @@ public class UserRoleDaoImpl implements UserRoleDao {
 	}
 
 	@Override
-	public UserRole findUserRoleById(String name) {
-		return sqlSession.<UserRole> selectOne("findUserRoleById", name);
+	public UserRole findUserRoleByName(String name) {
+		return sqlSession.<UserRole> selectOne("findUserRoleByName", name);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class UserRoleDaoImpl implements UserRoleDao {
 	}
 
 	@Override
-	public int isExistedUserRole(String name) {
-		return sqlSession.selectOne("isExistedUserRole", name);
+	public int hasUserRole(String name) {
+		return sqlSession.selectOne("hasUserRole", name);
 	}
 }

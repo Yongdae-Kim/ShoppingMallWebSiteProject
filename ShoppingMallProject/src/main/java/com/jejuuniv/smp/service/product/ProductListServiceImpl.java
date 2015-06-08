@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jejuuniv.smp.model.Product;
-import com.jejuuniv.smp.repository.product.ProductDao;
+import com.jejuuniv.smp.repository.products.ProductDao;
 
 @Service
 public class ProductListServiceImpl implements ProductListService {
