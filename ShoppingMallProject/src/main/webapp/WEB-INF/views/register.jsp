@@ -25,7 +25,7 @@
 
 </head>
 <body onload='document.loginForm.username.focus();'>
-	<section id="login">
+	<section id="register">
 		<div class="container">
 			<div class="page-header">
 				<h1>

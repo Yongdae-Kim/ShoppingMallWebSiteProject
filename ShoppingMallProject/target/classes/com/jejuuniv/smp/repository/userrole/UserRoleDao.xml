@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jejuuniv.smp.repository.userrole.UserRoleDao">
+	<select id="findAllUserRoles" resultType="UserRole">
+		select name, role
+		from
+		user_roles
+	</select>
+	<insert id="insertUserRole" parameterType="UserRole">
+		insert into
+		user_roles(name,
+		role)
+		values(#{name}, #{role})
+	</insert>
+	<delete id="deleteUserRole">
+		delete
+		from user_roles
+		where name = #{name}
+	</delete>
+	<select id="findUserRoleById" resultType="UserRole">
+		select name, role
+		from
+		user_roles
+		where name = #{name}
+	</select>
+	<select id="isExistedUserRole" resultType="int">
+		select count(*)
+		from
+		user_roles
+		where name=#{name}
+	</select>
+</mapper>

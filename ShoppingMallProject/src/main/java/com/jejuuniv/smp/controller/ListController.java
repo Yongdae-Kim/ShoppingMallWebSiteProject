@@ -23,7 +23,7 @@ public class ListController {
 
 		ModelAndView modelAndView = new ModelAndView();
 
-		List<Product> list = productListService.list();
+		List<Product> list = productListService.productList();
 
 		modelAndView.addObject("myList", list);
 		modelAndView.setViewName("list");

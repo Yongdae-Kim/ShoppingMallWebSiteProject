@@ -56,9 +56,9 @@ public class ProductDaoTest {
 		Product product = new Product(img, name, description, price, date,
 				seller);
 
-		productDao.insert(product);
+		productDao.insertProduct(product);
 
-		Product addedProduct = productDao.findById(id);
+		Product addedProduct = productDao.findProductById(id);
 
 		assertEquals(id, addedProduct.getId());
 		assertEquals(img, addedProduct.getImg());
@@ -72,7 +72,7 @@ public class ProductDaoTest {
 	@Test
 	public void getOne() {
 
-		Product product = productDao.findById(id);
+		Product product = productDao.findProductById(id);
 
 		assertEquals(id, product.getId());
 		assertEquals(img, product.getImg());
@@ -84,7 +84,7 @@ public class ProductDaoTest {
 
 	@Test
 	public void getAll() {
-		List<Product> products = productDao.findAll();
+		List<Product> products = productDao.findAllProducts();
 		for (Product product : products) {
 			System.out.println(product.getId());
 		}
@@ -96,11 +96,11 @@ public class ProductDaoTest {
 		Product product = new Product(img, name, description, price, date,
 				seller);
 
-		productDao.insert(product);
+		productDao.insertProduct(product);
 
-		productDao.delete(id);
+		productDao.deleteProduct(id);
 
-		Product deletedUser = productDao.findById(id);
+		Product deletedUser = productDao.findProductById(id);
 
 		assertNull(deletedUser);
 	}

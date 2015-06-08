@@ -17,23 +17,23 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public Product findById(long id) {
-		return sqlSession.<Product> selectOne("findById", id);
+	public Product findProductById(long id) {
+		return sqlSession.<Product> selectOne("findProductById", id);
 	}
 
 	@Override
-	public void insert(Product product) {
-		sqlSession.insert("insert", product);
+	public void insertProduct(Product product) {
+		sqlSession.insert("insertProduct", product);
 	}
 
 	@Override
-	public void delete(long id) {
-		sqlSession.delete("delete", id);
+	public void deleteProduct(long id) {
+		sqlSession.delete("deleteProduct", id);
 	}
 
 	@Override
-	public List<Product> findAll() {
-		return sqlSession.<Product> selectList("findAll");
+	public List<Product> findAllProducts() {
+		return sqlSession.<Product> selectList("findAllProducts");
 	}
 
 }

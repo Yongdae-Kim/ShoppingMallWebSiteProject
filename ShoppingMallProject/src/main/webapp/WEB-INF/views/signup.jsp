@@ -24,7 +24,7 @@
 
 </head>
 <body onload='document.registerForm.username.focus();'>
-	<section id="register">
+	<section id="signup">
 		<div class="container">
 			<div class="page-header">
 				<h1>
@@ -33,10 +33,10 @@
 			</div>
 
 			<form name=registerForm class="col-md-12" method="post"
-				accept-charset="utf-8" action="registerSubmit">
+				accept-charset="utf-8" action="signup">
 				<div class="form-group">
 					<input type="email" class="form-control input-lg"
-						placeholder="Email" name="username" value="${username}" />
+						placeholder="Email" name="name" value="${username}" />
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control input-lg"
@@ -47,12 +47,11 @@
 						placeholder="Confirm Password" name="confirmPassword" />
 				</div>
 				<div class="form-group">
-					<input type="submit" class="btn btn-custom btn-two btn-lg btn-block"
+					<input type="submit"
+						class="btn btn-custom btn-two btn-lg btn-block"
 						value="Create
 					New Account" />
 				</div>
-				<input type="hidden" name="${_csrf.parameterName}"
-					value="${_csrf.token}" />
 			</form>
 
 			<div class="form-group">

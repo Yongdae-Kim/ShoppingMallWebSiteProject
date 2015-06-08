@@ -15,4 +15,12 @@ public class LoginController {
 		modelAndView.setViewName("login");
 		return modelAndView;
 	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	public ModelAndView loginForm() {
+		ModelAndView modelAndView = new ModelAndView();
+
+		modelAndView.setViewName("redirect:list");
+		return modelAndView;
+	}
 }

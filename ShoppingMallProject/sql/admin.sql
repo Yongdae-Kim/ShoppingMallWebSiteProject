@@ -19,3 +19,5 @@ ALTER TABLE product convert to charset utf8;
 use smp;
 alter table product convert to character set utf8 name utf8_general_ci 
 
+use smp;
+SHOW VARIABLES LIKE "c%"

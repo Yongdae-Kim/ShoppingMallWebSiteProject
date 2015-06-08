@@ -17,22 +17,27 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User findById(String id) {
-		return sqlSession.<User> selectOne("findById", id);
+	public User findUserById(String name) {
+		return sqlSession.<User> selectOne("findUserById", name);
 	}
 
 	@Override
-	public void insert(User user) {
-		sqlSession.insert("insert", user);
+	public void insertUser(User user) {
+		sqlSession.insert("insertUser", user);
 	}
 
 	@Override
-	public void delete(String id) {
-		sqlSession.delete("delete", id);
+	public void deleteUser(String name) {
+		sqlSession.delete("deleteUser", name);
 	}
 
 	@Override
-	public List<User> findAll() {
-		return sqlSession.<User> selectList("findAll");
+	public List<User> findAllUsers() {
+		return sqlSession.<User> selectList("findAllUsers");
+	}
+
+	@Override
+	public int isExistedUser(String name) {
+		return sqlSession.selectOne("isExistedUser", name);
 	}
 }

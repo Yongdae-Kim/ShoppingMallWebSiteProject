@@ -2,8 +2,6 @@ package com.jejuuniv.smp.model;
 
 public class User {
 
-	private String id;
-
 	private String name;
 	private String password;
 
@@ -11,18 +9,9 @@ public class User {
 		super();
 	}
 
-	public User(String id, String name, String password) {
-		this.id = id;
+	public User(String name, String password) {
 		this.name = name;
 		this.password = password;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -40,4 +29,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 }

@@ -2,24 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jejuuniv.smp.repository.user.UserDao">
-	<select id="findAll" resultType="User">
-		select
-		id, name, password
-		from
-		user
+	<select id="findAllUsers" resultType="User">
+		select name, password
+		from users
 	</select>
-	<insert id="insert" parameterType="User">
-		insert into user(id, name,
-		password) values(#{id}, #{name}, #{password})
+	<insert id="insertUser" parameterType="User">
+		insert into users(name,
+		password)
+		values(#{name}, #{password})
 	</insert>
-	<delete id="delete">
-		delete from user where id = #{id}
+	<delete id="deleteUser">
+		delete
+		from users
+		where name = #{name}
 	</delete>
-	<select id="findById" resultType="User">
-		select
-		id, name, password
-		from
-		user where id = #{id}
+	<select id="findUserById" resultType="User">
+		select name, password
+		from users
+		where name = #{name}
 	</select>
-
+	<select id="isExistedUser" resultType="int">
+		select count(*)
+		from users
+		where name=#{name}
+	</select>
 </mapper>

@@ -5,9 +5,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
-import java.util.Random;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,70 +19,73 @@ import com.jejuuniv.smp.repository.user.UserDao;
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml")
 public class UserDaoTest {
 
-	private String name;
-	private String password;
-
 	@Autowired
 	private UserDao userDao;
 
-	@Before
-	public void setup() {
-		name = "kim";
-		password = "1111";
+	@Test
+	public void exist() {
+
+		String name = "kyd";
+
+		int userCount = userDao.isExistedUser(name);
+		boolean isExisted;
+
+		if (userCount >= 1) {
+			isExisted = true;
+		} else {
+			isExisted = false;
+		}
+
+		assertEquals(true, isExisted);
 	}
 
 	@Test
-	public void add() {
+	public void add() throws Exception {
 
-		String id = String.valueOf(new Random().nextInt());
+		String name = "kyd";
+		String password = "1111";
 
-		User user = new User(id, name, password);
+		if (!(userDao.isExistedUser(name) >= 1)) {
+			User user = new User(name, password);
+			userDao.insertUser(user);
 
-		// user.setId(id);
-		// user.setName(name);
-		// user.setPassword(password);
+			User addedUser = userDao.findUserById(name);
 
-		userDao.insert(user);
-
-		User addedUser = userDao.findById(id);
-
-		assertEquals(id, addedUser.getId());
-		assertEquals(name, addedUser.getName());
-		assertEquals(password, addedUser.getPassword());
+			assertEquals(name, addedUser.getName());
+			assertEquals(password, addedUser.getPassword());
+		}
 	}
 
 	@Test
-	public void getOne() {
+	public void getOne() throws Exception {
 
-		String id = "1";
-		User user = userDao.findById(id);
+		String name = "kyd";
+		String password = "1111";
 
-		assertEquals(id, user.getId());
+		User user = userDao.findUserById(name);
+
 		assertEquals(name, user.getName());
 		assertEquals(password, user.getPassword());
 	}
 
 	@Test
 	public void getAll() {
-		List<User> users = userDao.findAll();
+		List<User> users = userDao.findAllUsers();
 		assertTrue(users.size() > 0);
 	}
 
 	@Test
 	public void delete() {
 
-		String id = String.valueOf(new Random().nextInt());
+		String name = "hkj";
+		String password = "1111";
 
-		User user = new User(id, name, password);
+		User user = new User(name, password);
 
-		// user.setId(id);
-		// user.setName(name);
-		// user.setPassword(password);
+		userDao.insertUser(user);
 
-		userDao.insert(user);
-
-		userDao.delete(id);
-		User deletedUser = userDao.findById(id);
+		userDao.deleteUser(name);
+		User deletedUser = userDao.findUserById(name);
 		assertNull(deletedUser);
 	}
 }

@@ -12,7 +12,7 @@ public class RegisteProductServiceImpl implements RegisteProductService {
 	private ProductDao productDao;
 
 	@Override
-	public void save(Product product) {
-		productDao.insert(product);
+	public void addProduct(Product product) {
+		productDao.insertProduct(product);
 	}
 }

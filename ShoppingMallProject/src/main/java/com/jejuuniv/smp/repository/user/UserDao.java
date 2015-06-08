@@ -8,11 +8,13 @@ import com.jejuuniv.smp.model.User;
 
 @Repository
 public interface UserDao {
-	public abstract User findById(String id);
+	public abstract User findUserById(String name);
 
-	public abstract void insert(User user);
+	public abstract void insertUser(User user);
 
-	public abstract void delete(String id);
+	public abstract void deleteUser(String id);
 
-	public abstract List<User> findAll();
+	public abstract List<User> findAllUsers();
+
+	public abstract int isExistedUser(String name);
 }
