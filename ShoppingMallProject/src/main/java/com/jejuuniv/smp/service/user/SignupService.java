@@ -1,4 +1,4 @@
-package com.jejuuniv.smp.service;
+package com.jejuuniv.smp.service.user;
 
 import com.jejuuniv.smp.model.User;
 

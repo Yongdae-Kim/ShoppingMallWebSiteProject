@@ -40,4 +40,10 @@ public class UserDaoImpl implements UserDao {
 	public int isExistedUser(String name) {
 		return sqlSession.selectOne("isExistedUser", name);
 	}
+
+	@Override
+	public int isMatchedUser(User user) {
+		return sqlSession.selectOne("isMatchedUser", user);
+	}
+
 }

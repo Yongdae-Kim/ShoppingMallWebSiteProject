@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jejuuniv.smp.model.Product;
-import com.jejuuniv.smp.service.RegisteProductService;
+import com.jejuuniv.smp.service.product.RegisteProductService;
 import com.jejuuniv.smp.util.CurrentTime;
 
 @Controller

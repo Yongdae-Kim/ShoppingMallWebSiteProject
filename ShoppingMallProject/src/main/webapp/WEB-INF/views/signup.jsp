@@ -28,7 +28,7 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					Create a OpenMarket Account<br> <small>${msg}</small>
+					Create a OpenMarket Account<br> <small>${error}</small>
 				</h1>
 			</div>
 
@@ -36,7 +36,7 @@
 				accept-charset="utf-8" action="signup">
 				<div class="form-group">
 					<input type="email" class="form-control input-lg"
-						placeholder="Email" name="name" value="${username}" />
+						placeholder="Email" name="name" />
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control input-lg"

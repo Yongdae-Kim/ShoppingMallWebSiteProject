@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jejuuniv.smp.model.Product;
-import com.jejuuniv.smp.service.ProductListService;
+import com.jejuuniv.smp.service.product.ProductListService;
 
 @Controller
 @RequestMapping(value = "/list")

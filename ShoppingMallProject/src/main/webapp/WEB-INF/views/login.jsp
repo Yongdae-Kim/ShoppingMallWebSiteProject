@@ -32,33 +32,21 @@
 					Log in to OpenMarket <br> <small>${error}</small>
 				</h1>
 			</div>
-			<%-- 
-		<c:if test="${not empty error}">
-			<div class="alert alert-danger" role="alert">
-				<span class="glyphicon glyphicon-exclamation-sign"
-					aria-hidden="true"></span> <span class="sr-only">Error:</span>
-				${error}
-			</div>
-		</c:if> 
-		--%>
 			<!-- Login Form Start -->
-			<form name='loginForm' class="col-md-12" method="post"
-				action="<c:url value='/j_spring_security_check' />">
+			<form class="col-md-12" method="post" action="login">
 				<div class="form-group">
 					<input type="email" class="form-control input-lg"
-						placeholder="Email" name="username" value="${username}" />
+						placeholder="Email" name="name" value="${name}" />
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control input-lg"
-						placeholder="Password" name="password" value="${password}" />
+						placeholder="Password" name="password" />
 				</div>
 				<div class="form-group">
 					<input name="submit"
 						class="btn btn-custom btn-two btn-lg btn-block" type="submit"
 						value="Log in" />
 				</div>
-				<input type="hidden" name="${_csrf.parameterName}"
-					value="${_csrf.token}" />
 			</form>
 			<!-- Login Form End -->
 			<div class="form-group">
@@ -66,8 +54,8 @@
 						password</a></span>
 			</div>
 			<div class="form-group">
-				<span>Don't have an a account?<a href="signup"> Create
-						a OpenMarket account</a></span>
+				<span>Don't have an a account?<a href="signup"> Create a
+						OpenMarket account</a></span>
 			</div>
 		</div>
 	</section>

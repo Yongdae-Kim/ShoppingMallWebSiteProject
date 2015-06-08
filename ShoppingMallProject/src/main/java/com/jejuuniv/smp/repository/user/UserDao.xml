@@ -4,7 +4,8 @@
 <mapper namespace="com.jejuuniv.smp.repository.user.UserDao">
 	<select id="findAllUsers" resultType="User">
 		select name, password
-		from users
+		from
+		users
 	</select>
 	<insert id="insertUser" parameterType="User">
 		insert into users(name,
@@ -18,7 +19,8 @@
 	</delete>
 	<select id="findUserById" resultType="User">
 		select name, password
-		from users
+		from
+		users
 		where name = #{name}
 	</select>
 	<select id="isExistedUser" resultType="int">
@@ -26,4 +28,10 @@
 		from users
 		where name=#{name}
 	</select>
+	<select id="isMatchedUser" resultType="int">
+		select count(*)
+		from users
+		where name=#{name} and password=#{password}
+	</select>
+
 </mapper>

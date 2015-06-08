@@ -17,4 +17,6 @@ public interface UserDao {
 	public abstract List<User> findAllUsers();
 
 	public abstract int isExistedUser(String name);
+
+	public abstract int isMatchedUser(User user);
 }

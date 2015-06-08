@@ -1,4 +1,4 @@
-package com.jejuuniv.smp.service;
+package com.jejuuniv.smp.service.product;
 
 import java.util.List;
 
