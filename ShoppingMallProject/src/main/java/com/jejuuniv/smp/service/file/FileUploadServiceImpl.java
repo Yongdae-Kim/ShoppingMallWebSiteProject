@@ -10,22 +10,29 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadServiceImpl implements FileUploadService {
 
 	@Override
-	public void uploadFile(MultipartFile multipartFile, String fileName) {
+	public String uploadFile(MultipartFile multipartFile, String path) {
+
+		String fileName = getDetatilPath() + System.currentTimeMillis()
+				+ multipartFile.getOriginalFilename();
+
+		File uploadDir = new File(path);
+
+		if (!uploadDir.exists()) {
+			uploadDir.mkdirs();
+		}
+
+		File file = new File(uploadDir, fileName);
+
 		try {
-
-			File uploadDir = new File("C:/UploadFiles/");
-
-			if (!uploadDir.exists()) {
-				uploadDir.mkdirs();
-			}
-
-			File file = new File(uploadDir, fileName);
-
 			multipartFile.transferTo(file);
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
+		return fileName;
+	}
+
+	private String getDetatilPath() {
+		return "resources" + File.separator + "upload" + File.separator;
 	}
 }

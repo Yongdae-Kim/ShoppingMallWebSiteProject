@@ -60,10 +60,14 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="product" items="${productList}" varStatus="status">
+										<c:forEach var="product" items="${productList}"
+											varStatus="status">
 											<tr>
-												<td>${product.img}</td>
-												<td>${product.name}+${product.description}</td>
+												<td><img src="${product.img}"
+													class="img-thumbnail img-responsive" alt="${product.img}"
+													width="100" height="100"></td>
+												<td><span style="font-weight: bold">${product.name}</span><br>
+												<br>${product.description}</td>
 												<td>${product.price}</td>
 												<td>${product.date}</td>
 												<td>${product.seller}</td>

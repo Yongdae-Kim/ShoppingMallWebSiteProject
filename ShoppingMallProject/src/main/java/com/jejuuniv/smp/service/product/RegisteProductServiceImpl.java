@@ -18,18 +18,13 @@ public class RegisteProductServiceImpl implements RegisteProductService {
 	private FileUploadService fileUploadService;
 
 	@Override
-	public void addProduct(Product product) {
+	public void registeProduct(Product product, String path) {
 
 		MultipartFile uploadfile = product.getImgFile();
-		String fileName = null;
 
-		if (uploadfile != null) {
-			fileName = System.currentTimeMillis()
-					+ uploadfile.getOriginalFilename();
-			fileUploadService.uploadFile(uploadfile, fileName);
-		}
+		String imgPath = fileUploadService.uploadFile(uploadfile, path);
 
-		product.setImg(fileName);
+		product.setImg(imgPath);
 		product.setDate(CurrentTime.getNow());
 		productDao.insertProduct(product);
 	}
