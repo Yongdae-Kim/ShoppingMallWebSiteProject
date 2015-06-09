@@ -1,10 +1,14 @@
 package com.jejuuniv.smp.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Product {
 
 	private long id;
 
 	private String img;
+
+	private MultipartFile imgFile;
 
 	private String name;
 	private String description;
@@ -43,6 +47,14 @@ public class Product {
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+
+	public MultipartFile getImgFile() {
+		return imgFile;
+	}
+
+	public void setImgFile(MultipartFile imgFile) {
+		this.imgFile = imgFile;
 	}
 
 	public String getName() {

@@ -60,7 +60,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="product" items="${productList}" varStatus="status">
+										<c:forEach var="product" items="${myList}" varStatus="status">
 											<tr>
 												<td>${product.img}</td>
 												<td>${product.name}+${product.description}</td>

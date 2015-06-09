@@ -23,8 +23,9 @@
 <!-- IE10 viewport hack  -->
 <script src="resources/js/ie-10-view-port.js"></script>
 
+
 </head>
-<body onload='document.loginForm.username.focus();'>
+<body onload='document.registerForm.name.focus();'>
 	<section id="register">
 		<div class="container">
 			<div class="page-header">
@@ -35,56 +36,62 @@
 			</div>
 			<div class="row">
 
-				<form role="form" accept-charset="utf-8" method="post"
-					action="register">
+				<form name='registerForm' role="form" accept-charset="utf-8"
+					method="post" action="register" enctype="multipart/form-data">
 					<div class="col-md-12">
-						<div class="well well-sm">
-							<strong><span class="glyphicon glyphicon-asterisk"></span>Required
-								Field</strong>
+						<div class="col-md-6">
+							<img id="img_preview" style="display: none;"
+								class="img-thumbnail" alt="Cinque Terre">
 						</div>
-						<div class="form-group">
-							<label>Product Name</label>
-							<div class="input-group">
-								<input type="text" class="form-control" name="name"
-									placeholder="Product Name" required> <span
-									class="input-group-addon"><span
-									class="glyphicon glyphicon-asterisk"></span></span>
+						<div class="col-md-6">
+							<div class="well well-sm">
+								<strong><span class="glyphicon glyphicon-asterisk"></span>Required
+									Field</strong>
 							</div>
-						</div>
-						<div class="form-group">
-							<label>Product Image</label>
-							<div class="input-group">
-								<input type="text" class="form-control" name="img"
-									placeholder="Product Image" required> <span
-									class="input-group-addon"><span
-									class="glyphicon glyphicon-asterisk"></span></span>
+							<div class="form-group">
+								<label>Product Name</label>
+								<div class="input-group">
+									<input type="text" class="form-control" name="name"
+										placeholder="Product Name" required> <span
+										class="input-group-addon"><span
+										class="glyphicon glyphicon-asterisk"></span></span>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label>Product Price</label>
-							<div class="input-group">
-								<input type="number" class="form-control" name="price"
-									placeholder="Product Price" required> <span
-									class="input-group-addon"><span
-									class="glyphicon glyphicon-asterisk"></span></span>
+							<div class="form-group">
+								<label>Product Image</label>
+								<div class="input-group">
+									<input type="file" id="input_file" class="form-control"
+										name="imgFile" placeholder="Product Image" required> <span
+										class="input-group-addon"><span
+										class="glyphicon glyphicon-asterisk"></span></span>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label>Product Seller</label>
-							<div class="input-group">
-								<input type="text" class="form-control" name="seller"
-									placeholder="Product Seller" required> <span
-									class="input-group-addon"><span
-									class="glyphicon glyphicon-asterisk"></span></span>
+							<div class="form-group">
+								<label>Product Price</label>
+								<div class="input-group">
+									<input type="number" class="form-control" name="price"
+										placeholder="Product Price" required> <span
+										class="input-group-addon"><span
+										class="glyphicon glyphicon-asterisk"></span></span>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label>Product Description</label>
-							<div class="input-group">
-								<textarea name="description" class="form-control" rows="5"
-									required></textarea>
-								<span class="input-group-addon"><span
-									class="glyphicon glyphicon-asterisk"></span></span>
+							<div class="form-group">
+								<label>Product Seller</label>
+								<div class="input-group">
+									<input type="text" class="form-control" name="seller"
+										placeholder="Product Seller" required> <span
+										class="input-group-addon"><span
+										class="glyphicon glyphicon-asterisk"></span></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Product Description</label>
+								<div class="input-group">
+									<textarea name="description" class="form-control" rows="5"
+										required></textarea>
+									<span class="input-group-addon"><span
+										class="glyphicon glyphicon-asterisk"></span></span>
+								</div>
 							</div>
 						</div>
 						<div class="form-group">
@@ -103,6 +110,7 @@
 	<script src="resources/js/jquery-1.11.1.js"></script>
 	<!-- BOOTSTRAP SCRIPTS  -->
 	<script src="resources/js/bootstrap.js"></script>
-
+	<!-- Image Preview  -->
+	<script src="resources/js/image_preview.js"></script>
 </body>
 </html>

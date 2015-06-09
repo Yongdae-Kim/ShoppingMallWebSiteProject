@@ -5,4 +5,5 @@ import com.jejuuniv.smp.model.User;
 
 public interface BasketService {
 	User saveProduct(User user, Product product);
+
 }

@@ -11,9 +11,11 @@
 	</select>
 
 	<insert id="insertProduct" parameterType="Product">
-		insert into products(id, img,
+		insert into
+		products(id, img,
 		name, description, price, date, seller)
-		values(#{id}, #{img}, #{name},
+		values(#{id},
+		#{img}, #{name},
 		#{description}, #{price}, #{date}, #{seller})
 	</insert>
 
