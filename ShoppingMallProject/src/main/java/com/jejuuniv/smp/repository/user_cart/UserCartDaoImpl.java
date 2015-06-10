@@ -1,4 +1,4 @@
-package com.jejuuniv.smp.repository.user_basket;
+package com.jejuuniv.smp.repository.user_cart;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jejuuniv.smp.model.UserBasket;
 
-public class UserBasketDaoImpl implements UserBasketDao {
+public class UserCartDaoImpl implements UserCartDao {
 
 	@Autowired
 	private SqlSession sqlSession;

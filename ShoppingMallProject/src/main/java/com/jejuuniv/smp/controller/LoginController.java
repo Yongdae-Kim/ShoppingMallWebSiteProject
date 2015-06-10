@@ -1,5 +1,7 @@
 package com.jejuuniv.smp.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,27 +20,39 @@ public class LoginController {
 	private LoginService loginService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView login() {
+	public ModelAndView login(HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("login");
+		String viewName = null;
+
+		User loginUser = (User) session.getAttribute("loginUser");
+
+		if (loginUser != null) {
+			viewName = "redirect:welcome";
+		} else {
+			viewName = "login";
+		}
+
+		modelAndView.setViewName(viewName);
 		return modelAndView;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView loginForm(@ModelAttribute User input,
-			RedirectAttributes redirectAttributes) {
+			RedirectAttributes redirectAttributes, HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
 
-		String viewName = "";
+		String viewName = null;
 
 		if (loginService.findUser(input) != null) {
 			User user = loginService.findUser(input);
+			session.setAttribute("loginUser", user);
 			redirectAttributes.addFlashAttribute("user", user);
 			viewName = "redirect:list";
 		} else {
 			modelAndView.addObject("error", "Invalid username and password!");
 			viewName = "login";
 		}
+
 		modelAndView.setViewName(viewName);
 
 		return modelAndView;

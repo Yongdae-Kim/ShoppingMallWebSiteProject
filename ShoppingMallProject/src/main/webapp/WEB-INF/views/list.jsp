@@ -18,6 +18,9 @@
 <!-- FONTAWESOME STYLES-->
 <link href="resources/css/font-awesome.css" rel="stylesheet" />
 
+<!-- ION ICONS STYLES -->
+<link href="resources/css/ionicons.css" rel="stylesheet" />
+
 <!-- CUSTOM CSS -->
 <link href="resources/css/style.css" rel="stylesheet" />
 
@@ -30,6 +33,10 @@
 
 </head>
 <body>
+	<!-- HEADER SECTION START-->
+	<jsp:include page="page-module/header.jsp" flush="false" />
+	<!-- HEADER SECTION END-->
+
 	<section>
 		<div class="container">
 			<div class="page-header">
@@ -57,6 +64,7 @@
 											<th>Price</th>
 											<th>Date</th>
 											<th>Seller</th>
+											<th>Detail</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -67,14 +75,20 @@
 													class="img-thumbnail img-responsive" alt="${product.img}"
 													width="100" height="100"></td>
 												<td><span style="font-weight: bold">${product.name}</span><br>
-												<br>${product.description}</td>
+													<br>${product.description}</td>
 												<td>${product.price}</td>
 												<td>${product.date}</td>
 												<td>${product.seller}</td>
-												<!-- <form action="chart" method="POST">
-													<input class="btn btn-custom btn-one" type="submit"
-														value="Detail" />
-												</form> -->
+												<td><form action="product" method="POST">
+														<input type="hidden" name="img" value="${product.img}" />
+														<input type="hidden" name="name" value="${product.name}" />
+														<input type="hidden" name="description"
+															value="${product.description}" /> <input type="hidden"
+															name="price" value="${product.price}" /> <input
+															type="hidden" name="date" value="${product.date}" /> <input
+															type="hidden" name="seller" value="${product.seller}" />
+														<input class="btn btn-info" type="submit" value="Detail" />
+													</form></td>
 											</tr>
 										</c:forEach>
 									</tbody>

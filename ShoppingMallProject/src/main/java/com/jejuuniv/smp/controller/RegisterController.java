@@ -2,7 +2,6 @@ package com.jejuuniv.smp.controller;
 
 import java.io.File;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jejuuniv.smp.model.Product;
+import com.jejuuniv.smp.model.User;
 import com.jejuuniv.smp.service.product.RegisteProductService;
 
 @Controller
@@ -23,17 +23,26 @@ public class RegisterController {
 	private RegisteProductService registeProductService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView register() {
+	public ModelAndView register(HttpSession sesstion) {
+
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("register");
+		String viewName = null;
+
+		User loginUser = (User) sesstion.getAttribute("loginUser");
+		if (loginUser != null) {
+			viewName = "register";
+		} else {
+			viewName = "redirect:login";
+		}
+		modelAndView.setViewName(viewName);
 		return modelAndView;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView registeForm(@ModelAttribute Product input,
-			HttpServletRequest request) {
+			HttpSession session) {
 
-		String path = getRootPath(request.getSession());
+		String path = getRootPath(session);
 
 		ModelAndView modelAndView = new ModelAndView();
 

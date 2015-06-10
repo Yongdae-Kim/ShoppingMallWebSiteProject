@@ -12,8 +12,8 @@ import com.jejuuniv.smp.model.Product;
 import com.jejuuniv.smp.service.product.ProductListService;
 
 @Controller
-@RequestMapping(value = "/basket")
-public class BasketController {
+@RequestMapping(value = "/cart")
+public class CartController {
 
 	@Autowired
 	private ProductListService productListService;
