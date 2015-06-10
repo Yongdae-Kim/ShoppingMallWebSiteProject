@@ -58,9 +58,11 @@
 					<br>
 					<div class="form-group">
 						<div class="col-md-6">
-							<input name="submit"
-								class="btn btn-custom btn-one btn-lg btn-block" type="submit"
-								value="Add to Cart" />
+							<form action="addProduct" method="POST">
+								<input type="hidden" name="id" value="${product.id}" /> <input
+									name="submit" class="btn btn-custom btn-one btn-lg btn-block"
+									type="submit" value="Add to Cart" />
+							</form>
 						</div>
 						<div class="col-md-6">
 							<input name="submit"

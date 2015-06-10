@@ -1,5 +1,7 @@
 package com.jejuuniv.smp.service.product;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -9,12 +11,17 @@ import com.jejuuniv.smp.repository.products.ProductDao;
 import com.jejuuniv.smp.service.file.FileUploadService;
 
 @Service
-public class RegisteProductServiceImpl implements RegisteProductService {
+public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductDao productDao;
 
 	@Autowired
 	private FileUploadService fileUploadService;
+
+	@Override
+	public List<Product> productList() {
+		return productDao.findAllProducts();
+	}
 
 	@Override
 	public void registeProduct(Product product, String path) {

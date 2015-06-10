@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jejuuniv.smp.model.Product;
-import com.jejuuniv.smp.service.product.ProductListService;
+import com.jejuuniv.smp.service.product.ProductService;
 
 @Controller
 @RequestMapping(value = "/list")
 public class ListController {
 
 	@Autowired
-	private ProductListService productListService;
+	private ProductService productService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView list() {
 
 		ModelAndView modelAndView = new ModelAndView();
 
-		List<Product> list = productListService.productList();
+		List<Product> list = productService.productList();
 
 		modelAndView.addObject("productList", list);
 		modelAndView.setViewName("list");

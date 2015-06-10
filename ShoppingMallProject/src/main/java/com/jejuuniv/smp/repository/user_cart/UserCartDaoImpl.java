@@ -5,7 +5,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.jejuuniv.smp.model.UserBasket;
+import com.jejuuniv.smp.model.Product;
+import com.jejuuniv.smp.model.UserCart;
 
 public class UserCartDaoImpl implements UserCartDao {
 
@@ -13,13 +14,13 @@ public class UserCartDaoImpl implements UserCartDao {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<String> findUsersProductIds(String userName) {
-		return sqlSession.<String> selectList("findUsersProductIds");
+	public List<Product> findUsersProducstByName(String userName) {
+		return sqlSession.<Product> selectList("findUsersProducstByName");
 	}
 
 	@Override
-	public void insertUsersProduct(UserBasket userBasket) {
-		sqlSession.insert("insertUsersProduct", userBasket);
+	public void insertUsersProduct(UserCart userCart) {
+		sqlSession.insert("insertUsersProduct", userCart);
 	}
 
 	@Override

@@ -1,7 +1,5 @@
 package com.jejuuniv.smp;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.Before;
@@ -11,7 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.jejuuniv.smp.model.UserBasket;
+import com.jejuuniv.smp.model.Product;
+import com.jejuuniv.smp.model.UserCart;
 import com.jejuuniv.smp.repository.user_cart.UserCartDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -32,14 +31,14 @@ public class UserCartDaoTest {
 		long productId = 3;
 
 		if (!(userCartDao.isExistedUsersProduct(productId) >= 1)) {
-			UserBasket userBasket = new UserBasket(userName, productId);
-			userCartDao.insertUsersProduct(userBasket);
+			UserCart userCart = new UserCart(userName, productId);
+			userCartDao.insertUsersProduct(userCart);
 
-			List<String> usersProductIds = userCartDao
-					.findUsersProductIds(userName);
+			List<Product> usersProducts = userCartDao
+					.findUsersProducstByName(userName);
 
-			for (String id : usersProductIds) {
-				assertEquals(id, productId);
+			for (Product product : usersProducts) {
+				System.out.println(product.getName());
 			}
 		}
 	}
@@ -49,16 +48,17 @@ public class UserCartDaoTest {
 		String userName = "scratchback@hanmail.net";
 		long productId = 4;
 
-		UserBasket userBasket = new UserBasket(userName, productId);
-		userCartDao.insertUsersProduct(userBasket);
+		UserCart userCart = new UserCart(userName, productId);
+		userCartDao.insertUsersProduct(userCart);
 
 		userCartDao.deleteUsersProduct(productId);
 
-		List<String> usersProductIds = userCartDao
-				.findUsersProductIds(userName);
+		List<Product> usersProducts = userCartDao
+				.findUsersProducstByName(userName);
 
-		for (String id : usersProductIds) {
-			assertFalse(id.equals(4));
+		for (Product product : usersProducts) {
+			System.out.println(product.getName());
 		}
+
 	}
 }

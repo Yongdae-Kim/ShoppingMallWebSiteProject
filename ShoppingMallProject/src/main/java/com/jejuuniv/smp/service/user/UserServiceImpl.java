@@ -10,13 +10,22 @@ import com.jejuuniv.smp.repository.user_roles.UserRoleDao;
 import com.jejuuniv.smp.repository.users.UserDao;
 
 @Service
-public class SignupServiceImpl implements SignupService {
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDao userDao;
 
 	@Autowired
 	private UserRoleDao userRoleDao;
+
+	@Override
+	public User findUser(User user) {
+		User selectedUser = null;
+		if (userDao.isMatchedUser(user) >= 1) {
+			selectedUser = userDao.findUserByName(user.getName());
+		}
+		return selectedUser;
+	}
 
 	@Override
 	public boolean addUser(User user) {

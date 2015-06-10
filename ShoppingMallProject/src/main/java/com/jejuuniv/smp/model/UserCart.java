@@ -1,15 +1,15 @@
 package com.jejuuniv.smp.model;
 
-public class UserBasket {
+public class UserCart {
 
 	private String userName;
 	private long productId;
 
-	public UserBasket() {
+	public UserCart() {
 		super();
 	}
 
-	public UserBasket(String userName, long productId) {
+	public UserCart(String userName, long productId) {
 		super();
 		this.userName = userName;
 		this.productId = productId;

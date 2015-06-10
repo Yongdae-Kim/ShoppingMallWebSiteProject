@@ -9,14 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jejuuniv.smp.model.User;
-import com.jejuuniv.smp.service.user.SignupService;
+import com.jejuuniv.smp.service.user.UserService;
 
 @Controller
 @RequestMapping(value = "/signup")
 public class SignupController {
 
 	@Autowired
-	private SignupService signupService;
+	private UserService userService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView signup() {
@@ -32,7 +32,7 @@ public class SignupController {
 
 		String viewName = "";
 
-		if (signupService.addUser(input)) {
+		if (userService.addUser(input)) {
 			redirectAttributes.addFlashAttribute("name", input.getName());
 			viewName = "redirect:login";
 		} else {

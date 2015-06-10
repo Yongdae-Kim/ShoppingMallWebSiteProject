@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jejuuniv.smp.model.Product;
 import com.jejuuniv.smp.model.User;
-import com.jejuuniv.smp.service.product.RegisteProductService;
+import com.jejuuniv.smp.service.product.ProductService;
 import com.jejuuniv.smp.util.CurrentTime;
 
 @Controller
@@ -21,7 +21,9 @@ import com.jejuuniv.smp.util.CurrentTime;
 public class RegisterController {
 
 	@Autowired
-	private RegisteProductService registeProductService;
+	private ProductService productService;
+
+	private long id = 0;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView register(HttpSession session) {
@@ -49,10 +51,11 @@ public class RegisterController {
 
 		String path = getRootPath(session);
 
+		input.setId(id++);
 		input.setSeller(loginUser.getName());
 		input.setDate(CurrentTime.getNow());
 
-		registeProductService.registeProduct(input, path);
+		productService.registeProduct(input, path);
 
 		modelAndView.setViewName("redirect:list");
 		return modelAndView;

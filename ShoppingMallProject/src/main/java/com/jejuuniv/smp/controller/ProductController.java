@@ -14,6 +14,7 @@ public class ProductController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView product(@ModelAttribute Product product) {
+
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("product", product);
 		modelAndView.setViewName("product");

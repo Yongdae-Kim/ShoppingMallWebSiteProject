@@ -31,4 +31,12 @@
 		products where id = #{id}
 	</select>
 
+	<select id="findProductsByName" resultType="Product">
+		select
+		id, img, name,
+		description, price, date, seller
+		from
+		products where name = #{Name}
+	</select>
+
 </mapper>

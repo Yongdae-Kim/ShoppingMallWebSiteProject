@@ -36,4 +36,9 @@ public class ProductDaoImpl implements ProductDao {
 		return sqlSession.<Product> selectList("findAllProducts");
 	}
 
+	@Override
+	public List<Product> findProductByName(String name) {
+		return sqlSession.<Product> selectList("findProductsByName");
+	}
+
 }

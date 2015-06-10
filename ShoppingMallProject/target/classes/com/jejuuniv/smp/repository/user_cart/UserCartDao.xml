@@ -2,11 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jejuuniv.smp.repository.user_cart.UserCartDao">
-	<select id="findUsersProductIds" resultType="String">
-		select productId
+	<select id="findUsersProducstByName" resultType="Product">
+		select *
 		from
-		user_cart
-		where userName = #{userName}
+		smp.user_cart uc left outer join smp.products p
+		on uc.productId = p.id
+		WHERE
+		userName=#{userName}
 	</select>
 	<insert id="insertUsersProduct">
 		insert into
@@ -21,8 +23,11 @@
 	</delete>
 	<select id="isExistedUsersProduct" resultType="int">
 		select count(*)
-		from user_cart
-		where productId = #{productId}
+		from
+		smp.user_cart uc left outer join smp.products p
+		on uc.productId =
+		p.id WHERE
+		productId = #{productId}
 	</select>
 </mapper>
 

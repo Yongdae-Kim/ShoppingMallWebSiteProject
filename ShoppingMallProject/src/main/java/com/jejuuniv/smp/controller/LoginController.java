@@ -11,13 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jejuuniv.smp.model.User;
-import com.jejuuniv.smp.service.user.LoginService;
+import com.jejuuniv.smp.service.user.UserService;
 
 @Controller
 @RequestMapping(value = "/login")
 public class LoginController {
 	@Autowired
-	private LoginService loginService;
+	private UserService userService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView login(HttpSession session) {
@@ -43,8 +43,8 @@ public class LoginController {
 
 		String viewName = null;
 
-		if (loginService.findUser(input) != null) {
-			User user = loginService.findUser(input);
+		if (userService.findUser(input) != null) {
+			User user = userService.findUser(input);
 			session.setAttribute("loginUser", user);
 			redirectAttributes.addFlashAttribute("user", user);
 			viewName = "redirect:list";

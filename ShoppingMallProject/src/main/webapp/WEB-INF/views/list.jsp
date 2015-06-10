@@ -80,9 +80,10 @@
 												<td>${product.date}</td>
 												<td>${product.seller}</td>
 												<td><form action="product" method="POST">
-														<input type="hidden" name="img" value="${product.img}" />
-														<input type="hidden" name="name" value="${product.name}" />
-														<input type="hidden" name="description"
+														<input type="hidden" name="id" value="${product.id}" /> <input
+															type="hidden" name="img" value="${product.img}" /> <input
+															type="hidden" name="name" value="${product.name}" /> <input
+															type="hidden" name="description"
 															value="${product.description}" /> <input type="hidden"
 															name="price" value="${product.price}" /> <input
 															type="hidden" name="date" value="${product.date}" /> <input
