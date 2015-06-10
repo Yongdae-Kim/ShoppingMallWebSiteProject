@@ -76,15 +76,6 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Product Seller</label>
-								<div class="input-group">
-									<input type="text" class="form-control" name="seller"
-										placeholder="Product Seller" required> <span
-										class="input-group-addon"><span
-										class="glyphicon glyphicon-asterisk"></span></span>
-								</div>
-							</div>
-							<div class="form-group">
 								<label>Product Description</label>
 								<div class="input-group">
 									<textarea name="description" class="form-control" rows="5"

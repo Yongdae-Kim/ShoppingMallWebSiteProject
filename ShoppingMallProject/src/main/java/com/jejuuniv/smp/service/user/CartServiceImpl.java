@@ -6,7 +6,7 @@ import com.jejuuniv.smp.model.Product;
 import com.jejuuniv.smp.model.User;
 
 @Service
-public class BasketServiceImpl implements BasketService {
+public class CartServiceImpl implements CartService {
 
 	@Override
 	public User saveProduct(User user, Product product) {

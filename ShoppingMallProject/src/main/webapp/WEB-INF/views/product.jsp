@@ -39,9 +39,9 @@
 				<div class="col-md-12">
 					<div class="col-md-6">
 						<img src="${product.img}" alt="${product.img}"
-							class="img-thumbnail" alt="Cinque Terre">
+							class="img-thumbnail" style="width: 550px; height: 450px;">
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6" style="width: 550px; height: 450px;">
 						<h2>Name : ${product.name}</h2>
 						<br>
 						<h3>

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jejuuniv.smp.model.Product;
 import com.jejuuniv.smp.model.User;
 import com.jejuuniv.smp.service.product.RegisteProductService;
+import com.jejuuniv.smp.util.CurrentTime;
 
 @Controller
 @RequestMapping(value = "/register")
@@ -23,12 +24,12 @@ public class RegisterController {
 	private RegisteProductService registeProductService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView register(HttpSession sesstion) {
+	public ModelAndView register(HttpSession session) {
 
 		ModelAndView modelAndView = new ModelAndView();
 		String viewName = null;
 
-		User loginUser = (User) sesstion.getAttribute("loginUser");
+		User loginUser = (User) session.getAttribute("loginUser");
 		if (loginUser != null) {
 			viewName = "register";
 		} else {
@@ -42,9 +43,14 @@ public class RegisterController {
 	public ModelAndView registeForm(@ModelAttribute Product input,
 			HttpSession session) {
 
+		ModelAndView modelAndView = new ModelAndView();
+
+		User loginUser = (User) session.getAttribute("loginUser");
+
 		String path = getRootPath(session);
 
-		ModelAndView modelAndView = new ModelAndView();
+		input.setSeller(loginUser.getName());
+		input.setDate(CurrentTime.getNow());
 
 		registeProductService.registeProduct(input, path);
 

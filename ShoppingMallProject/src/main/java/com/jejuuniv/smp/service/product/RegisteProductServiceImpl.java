@@ -7,7 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.jejuuniv.smp.model.Product;
 import com.jejuuniv.smp.repository.products.ProductDao;
 import com.jejuuniv.smp.service.file.FileUploadService;
-import com.jejuuniv.smp.util.CurrentTime;
 
 @Service
 public class RegisteProductServiceImpl implements RegisteProductService {
@@ -25,7 +24,7 @@ public class RegisteProductServiceImpl implements RegisteProductService {
 		String imgPath = fileUploadService.uploadFile(uploadfile, path);
 
 		product.setImg(imgPath);
-		product.setDate(CurrentTime.getNow());
+
 		productDao.insertProduct(product);
 	}
 }
