@@ -46,8 +46,8 @@
 						<h4>Consectetur adipiscing elit felis dolor felis dolor
 							vitae. Eelit felis dolor vitae adipiscing elit felis dolor felis
 							dolor vitae. Eelit felis dolor vitae</h4>
-						<a href="login" class="btn btn-custom btn-two">Log In</a> <a
-							href="signup" class="btn btn-custom btn-one">Sign Up</a>
+						<a href="userLogin" class="btn btn-custom btn-two">Log In</a> <a
+							href="userSignup" class="btn btn-custom btn-one">Sign Up</a>
 					</div>
 				</div>
 			</div>

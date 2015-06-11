@@ -15,7 +15,7 @@ public class UserLogoutController {
 	public ModelAndView userLogout(HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
 		session.setAttribute("loginUser", null);
-		modelAndView.setViewName("redirect:userLogin");
+		modelAndView.setViewName("redirect:welcome");
 		return modelAndView;
 	}
 }

@@ -24,34 +24,34 @@
 
 
 </head>
-<body onload='document.registerForm.username.focus();'>
+<body onload='document.signupForm.name.focus();'>
 	<section id="signup">
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					Create a OpenMarket Account<br> <small>${error}</small>
+					Create a OpenMarket Account<br> <small id="msg">${msg}</small>
 				</h1>
 			</div>
 
-			<form name=registerForm class="col-md-12" method="post"
-				accept-charset="utf-8" action="userSignupForm">
+			<form name=signupForm class="col-md-12" method="post"
+				accept-charset="utf-8" action="userSignup"
+				onsubmit="return passwordValidation()">
 				<div class="form-group">
 					<input type="email" class="form-control input-lg"
 						placeholder="Email" name="name" />
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control input-lg"
+					<input id="pass" type="password" class="form-control input-lg"
 						placeholder="Password" name="password" />
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control input-lg"
+					<input id="c_pass" type="password" class="form-control input-lg"
 						placeholder="Confirm Password(again)" name="confirmPassword" />
 				</div>
 				<div class="form-group">
 					<input type="submit"
 						class="btn btn-custom btn-two btn-lg btn-block"
-						value="Create
-					New Account" />
+						value="Create New Account" />
 				</div>
 			</form>
 
@@ -65,7 +65,10 @@
 
 	<!-- CORE JQUERY  SCRIPTS -->
 	<script src="resources/js/jquery-1.11.1.js"></script>
+	<!-- CORE JQUERY  SCRIPTS -->
+	<script src="resources/js/pw_validation.js"></script>
 	<!-- BOOTSTRAP SCRIPTS  -->
 	<script src="resources/js/bootstrap.js"></script>
 </body>
 </html>
+

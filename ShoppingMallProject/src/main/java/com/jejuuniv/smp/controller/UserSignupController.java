@@ -36,7 +36,7 @@ public class UserSignupController {
 			redirectAttributes.addFlashAttribute("name", input.getName());
 			viewName = "redirect:userLogin";
 		} else {
-			modelAndView.addObject("error",
+			modelAndView.addObject("msg",
 					"Email already in use by another account.");
 			viewName = "userSignup";
 		}

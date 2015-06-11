@@ -24,7 +24,7 @@
 <script src="resources/js/ie-10-view-port.js"></script>
 
 </head>
-<body onload='document.loginForm.username.focus();'>
+<body onload='document.loginForm.name.focus();'>
 	<section id="login">
 		<div class="container">
 			<div class="page-header">
@@ -33,7 +33,8 @@
 				</h1>
 			</div>
 			<!-- Login Form Start -->
-			<form class="col-md-12" method="post" action="userLogin">
+			<form name="loginForm" class="col-md-12" method="post"
+				action="userLogin">
 				<div class="form-group">
 					<input type="email" class="form-control input-lg"
 						placeholder="Email" name="name" value="${name}" />
@@ -50,8 +51,8 @@
 			</form>
 			<!-- Login Form End -->
 			<div class="form-group">
-				<span>Forget your password?<a href="userLost"> Reset
-						your password</a></span>
+				<span>Forget your password?<a href="userLost"> Reset your
+						password</a></span>
 			</div>
 			<div class="form-group">
 				<span>Don't have an a account?<a href="userSignup">
@@ -68,3 +69,4 @@
 
 </body>
 </html>
+
