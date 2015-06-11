@@ -37,8 +37,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public int isExistedUser(String name) {
-		return sqlSession.selectOne("isExistedUser", name);
+	public int isExistedUserName(String name) {
+		return sqlSession.selectOne("isExistedUserName", name);
 	}
 
 	@Override
@@ -46,4 +46,8 @@ public class UserDaoImpl implements UserDao {
 		return sqlSession.selectOne("isMatchedUser", user);
 	}
 
+	@Override
+	public void updateUser(User user) {
+		sqlSession.update("updateUser", user);
+	}
 }

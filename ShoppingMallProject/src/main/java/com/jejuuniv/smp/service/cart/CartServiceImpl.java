@@ -36,14 +36,11 @@ public class CartServiceImpl implements CartService {
 		List<Product> products = userCartDao.findUsersProducstByName(userName);
 
 		for (Product product : products) {
-
 			if (productId == product.getId()) {
 				isExistedProduct = true;
-			} else {
-				isExistedProduct = false;
+				break;
 			}
 		}
 		return isExistedProduct;
 	}
-
 }

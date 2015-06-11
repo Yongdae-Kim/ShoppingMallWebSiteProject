@@ -27,7 +27,7 @@ public class UserDaoTest {
 
 		String name = "scratchback@hanmail.net";
 
-		int userCount = userDao.isExistedUser(name);
+		int userCount = userDao.isExistedUserName(name);
 		boolean isExisted;
 
 		if (userCount >= 1) {
@@ -45,7 +45,7 @@ public class UserDaoTest {
 		String name = "scratchback@hanmail.net";
 		String password = "1234";
 
-		if (!(userDao.isExistedUser(name) >= 1)) {
+		if (!(userDao.isExistedUserName(name) >= 1)) {
 			User user = new User(name, password);
 			userDao.insertUser(user);
 

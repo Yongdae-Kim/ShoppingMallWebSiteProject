@@ -15,5 +15,4 @@ public interface UserCartDao {
 
 	void insertUsersProduct(UserCart userCart);
 
-	int isExistedUsersProduct(long productId);
 }

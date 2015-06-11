@@ -41,4 +41,9 @@ public class UserServiceImpl implements UserService {
 		}
 		return isUserAdded;
 	}
+
+	@Override
+	public void resetUser(User user) {
+		userDao.updateUser(user);
+	}
 }

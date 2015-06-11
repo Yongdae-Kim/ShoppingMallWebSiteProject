@@ -16,7 +16,9 @@ public interface UserDao {
 
 	List<User> findAllUsers();
 
-	int isExistedUser(String name);
+	int isExistedUserName(String name);
 
 	int isMatchedUser(User user);
+
+	void updateUser(User user);
 }

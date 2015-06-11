@@ -27,20 +27,6 @@ public class UserCartDaoTest {
 	@Test
 	public void insertUsersProductTesting() {
 
-		String userName = "scratchback@hanmail.net";
-		long productId = 3;
-
-		if (!(userCartDao.isExistedUsersProduct(productId) >= 1)) {
-			UserCart userCart = new UserCart(userName, productId);
-			userCartDao.insertUsersProduct(userCart);
-
-			List<Product> usersProducts = userCartDao
-					.findUsersProducstByName(userName);
-
-			for (Product product : usersProducts) {
-				System.out.println(product.getName());
-			}
-		}
 	}
 
 	@Test

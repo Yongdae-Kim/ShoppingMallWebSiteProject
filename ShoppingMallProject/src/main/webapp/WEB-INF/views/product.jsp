@@ -1,6 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8" session="true"%>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,6 +26,11 @@
 
 </head>
 <body onload='document.submit.focus();'>
+
+	<!-- HEADER SECTION START-->
+	<jsp:include page="page-module/header.jsp" flush="false" />
+	<!-- HEADER SECTION END-->
+	
 	<section id="register">
 		<div class="container">
 			<div class="page-header">
@@ -65,9 +70,11 @@
 							</form>
 						</div>
 						<div class="col-md-6">
-							<input name="submit"
-								class="btn btn-custom btn-two btn-lg btn-block" type="submit"
-								value="Buy it" />
+							<form action="#" method="POST">
+								<input name="submit"
+									class="btn btn-custom btn-two btn-lg btn-block" type="submit"
+									value="Buy it" />
+							</form>
 						</div>
 					</div>
 				</div>

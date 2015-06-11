@@ -6,4 +6,6 @@ public interface UserService {
 	User findUser(User user);
 
 	boolean addUser(User user);
+
+	void resetUser(User user);
 }

@@ -29,8 +29,4 @@ public class UserCartDaoImpl implements UserCartDao {
 
 	}
 
-	@Override
-	public int isExistedUsersProduct(long productId) {
-		return sqlSession.selectOne("isExistedUsersProduct", productId);
-	}
 }

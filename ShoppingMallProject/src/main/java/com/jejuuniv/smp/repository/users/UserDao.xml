@@ -23,9 +23,10 @@
 		users
 		where name = #{name}
 	</select>
-	<select id="isExistedUser" resultType="int">
+	<select id="isExistedUserName" resultType="int">
 		select count(*)
-		from users
+		from
+		users
 		where name=#{name}
 	</select>
 	<select id="isMatchedUser" resultType="int">
@@ -33,5 +34,10 @@
 		from users
 		where name=#{name} and password=#{password}
 	</select>
+
+	<update id="updateUser" parameterType="User">
+		update users set
+		name=#{name}, password=#{password} where name = #{name}
+	</update>
 
 </mapper>
