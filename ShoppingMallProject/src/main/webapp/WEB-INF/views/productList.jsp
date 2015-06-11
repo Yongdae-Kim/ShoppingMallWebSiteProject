@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>OpenMarket List</title>
+<title>OpenMarket Product List</title>
 
 <!-- BOOTSTRAP STYLES-->
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
@@ -41,7 +41,7 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					New Product List <br> <small>If you want to see on the
+					OpenMarket Product List <br> <small>If you want to see on the
 						product, Click the 'Detail' button.</small>
 				</h1>
 			</div>

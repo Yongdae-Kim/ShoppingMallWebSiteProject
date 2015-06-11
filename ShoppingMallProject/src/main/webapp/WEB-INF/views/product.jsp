@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Register in to OpenMarket</title>
+<title>Would You Like to Buy the Product ?</title>
 
 <!-- BOOTSTRAP CORE CSS -->
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
@@ -30,12 +30,12 @@
 	<!-- HEADER SECTION START-->
 	<jsp:include page="page-module/header.jsp" flush="false" />
 	<!-- HEADER SECTION END-->
-	
+
 	<section id="register">
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					Would you like to buy the product ?<br> <small> Click
+					Would You Like to Buy the Product ?<br> <small> Click
 						the 'Buy it' button</small>
 				</h1>
 			</div>
@@ -48,15 +48,11 @@
 					</div>
 					<div class="col-md-6" style="width: 550px; height: 450px;">
 						<h2>Name : ${product.name}</h2>
-						<br>
 						<h3>
 							Date : <span class="label label-default">${product.date}</span>
 						</h3>
-						<br>
 						<h3>Description : ${product.description}</h3>
-						<br>
 						<h3>Price : ${product.price}</h3>
-						<br>
 						<h3>Seller : ${product.seller}</h3>
 						<br>
 					</div>

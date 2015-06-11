@@ -9,4 +9,6 @@ public interface ProductService {
 
 	void registeProduct(Product product, String path);
 
+	Product getNewProduct();
+
 }

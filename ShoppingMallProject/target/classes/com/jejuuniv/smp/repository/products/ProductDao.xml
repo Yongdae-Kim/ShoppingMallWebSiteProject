@@ -38,5 +38,9 @@
 		from
 		products where name = #{Name}
 	</select>
+	<select id="findLatestProduct" resultType="Product">
+		select * from products
+		order by date desc limit 1
+	</select>
 
 </mapper>

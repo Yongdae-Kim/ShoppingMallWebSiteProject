@@ -34,4 +34,9 @@ public class ProductServiceImpl implements ProductService {
 
 		productDao.insertProduct(product);
 	}
+
+	@Override
+	public Product getNewProduct() {
+		return productDao.findLatestProduct();
+	}
 }

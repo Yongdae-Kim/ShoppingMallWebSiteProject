@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Reset Your OpenMarket Password</title>
+<title>Have You Forgotten Your Password ?</title>
 
 <!-- BOOTSTRAP CORE CSS -->
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
@@ -47,7 +47,7 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					Reset Your OpenMarket Password<br>
+					Have You Forgotten Your Password ?<br>
 					<c:choose>
 						<c:when test="${empty msg}">
 							<small>Submit your email address and we’ll send you a

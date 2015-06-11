@@ -29,7 +29,7 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					Log in to OpenMarket <br> <small>${error}</small>
+					Log in to OpenMarket<br> <small>${error}</small>
 				</h1>
 			</div>
 			<!-- Login Form Start -->

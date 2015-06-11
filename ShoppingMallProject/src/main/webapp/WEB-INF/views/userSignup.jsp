@@ -65,7 +65,7 @@
 
 	<!-- CORE JQUERY  SCRIPTS -->
 	<script src="resources/js/jquery-1.11.1.js"></script>
-	<!-- CORE JQUERY  SCRIPTS -->
+	<!-- PASSWORD VALIDATION SCRIPTS -->
 	<script src="resources/js/pw_validation.js"></script>
 	<!-- BOOTSTRAP SCRIPTS  -->
 	<script src="resources/js/bootstrap.js"></script>

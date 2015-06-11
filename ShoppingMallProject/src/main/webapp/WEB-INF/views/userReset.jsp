@@ -14,7 +14,7 @@
         <![endif]-->
 <!-- Favicon Icon -->
 <link rel="icon" href="assets/img/favicon.ico" />
-<title>Reset Password</title>
+<title>Reset Your OpenMarket Password</title>
 <!-- BOOTSTRAP CORE CSS -->
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
 <!-- ION ICONS STYLES -->
@@ -38,22 +38,23 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					Reset Password<br> <small>${msg}</small>
+					Reset Your OpenMarket Password<br> <small id="msg">${msg}</small>
 				</h1>
 			</div>
 			<!-- Reset Form START -->
 			<form name=resetForm class="col-md-12" method="post"
-				accept-charset="utf-8" action="resetUserPassword">
+				accept-charset="utf-8" action="resetUserPassword"
+				onsubmit="return passwordValidation()">
 				<div class="form-group">
 					<input type="password" class="form-control input-lg"
 						placeholder="Old Password" name="oldPassword" />
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control input-lg"
+					<input id="pass" type="password" class="form-control input-lg"
 						placeholder="New Password" name="password" />
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control input-lg"
+					<input id="c_pass" type="password" class="form-control input-lg"
 						placeholder="New Password(again)" name="confirmPassword" />
 				</div>
 				<div class="form-group">
@@ -71,6 +72,8 @@
 	<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
 	<!-- CORE JQUERY  SCRIPTS -->
 	<script src="resources/js/jquery-1.11.1.js"></script>
+	<!-- PASSWORD VALIDATION SCRIPTS -->
+	<script src="resources/js/pw_validation.js"></script>
 	<!-- BOOTSTRAP SCRIPTS  -->
 	<script src="resources/js/bootstrap.js"></script>
 	<!-- SCROLLING SCRIPTS PLUGIN  -->

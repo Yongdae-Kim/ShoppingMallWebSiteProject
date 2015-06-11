@@ -14,7 +14,7 @@
         <![endif]-->
 <!-- Favicon Icon -->
 <link rel="icon" href="assets/img/favicon.ico" />
-<title>Wonder Landing Page</title>
+<title>Everybody Buy, Everybody Sell</title>
 <!-- BOOTSTRAP CORE CSS -->
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
 <!-- ION ICONS STYLES -->
@@ -42,10 +42,12 @@
 			<div class="container">
 				<div class="row scroll-me">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<h1>Wonder Landing Page</h1>
-						<h4>Consectetur adipiscing elit felis dolor felis dolor
-							vitae. Eelit felis dolor vitae adipiscing elit felis dolor felis
-							dolor vitae. Eelit felis dolor vitae</h4>
+						<h1>OpenMarket</h1>
+						<h2>Everybody Buy, Everybody Sell</h2>
+						<h4>
+							You can be a master of the OpenMarket.<br> Sign up right
+							now!
+						</h4>
 						<a href="userLogin" class="btn btn-custom btn-two">Log In</a> <a
 							href="userSignup" class="btn btn-custom btn-one">Sign Up</a>
 					</div>
@@ -59,36 +61,34 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-					<h2 class="head-line">What Worth Here & Why ?</h2>
-					<p>Morbi mollis lectus et ipsum sollicitudin varius. Aliquam
-						tempus ante placerat, consectetur tellus nec, porttitor nulla.
-						Maecenas a quam erat. Praesent vehicula ut magna sit amet
-						ultrices.</p>
+					<h1>
+						Today's Product <span class="label label-default">New</span>
+					</h1>
+					<h2 class="head-line">${product.name}</h2>
+					<h3>${product.description}</h3>
 					<div class="row text-center">
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<div class="row pad-bottom">
 								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 									<div class="icon-wrapper">
-										<i class="ion-tshirt-outline"></i>
+										<i class="ion-ios-time"></i>
 									</div>
-									<h4>Responsive Design</h4>
-									Consectetur adipiscing elit felis dolor .
-
+									<h3>Time</h3>
+									<h4>${product.date}</h4>
 								</div>
 								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 									<div class="icon-wrapper">
-										<i class="ion-monitor"></i>
+										<i class="ion-pricetag"></i>
 									</div>
-									<h4>Awesome Features</h4>
-									Consectetur adipiscing elit felis dolor .
-
+									<h3>Price</h3>
+									<h4>${product.price}</h4>
 								</div>
 								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 									<div class="icon-wrapper">
-										<i class="ion-clipboard"></i>
+										<i class="ion-person"></i>
 									</div>
-									<h4>Multipurpose Use</h4>
-									Consectetur adipiscing elit felis dolor .
+									<h3>Seller</h3>
+									<h4>${product.seller}</h4>
 								</div>
 							</div>
 						</div>
@@ -96,7 +96,7 @@
 				</div>
 
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
-					<img src="resources/img/phone.png" class="img-side" alt="" />
+					<img src="${product.img}" class="img-side" alt="" />
 				</div>
 			</div>
 		</div>
@@ -108,9 +108,10 @@
 			<div class="container">
 				<div class="row text-center">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12  contact-cover">
-						<h2>Physical Location</h2>
-						<h3>345, New Street ,</h3>
-						<h3>United States</h3>
+						<h2>Location</h2>
+						<h3>JEJU National Univ, South Korea</h3>
+						<h3>Software Development Lab</h3>
+						<h3>Scratchback</h3>
 						<div class="space"></div>
 						<div class="social">
 							<a href="#"><i class="fa fa-facebook "></i></a> <a href="#"><i

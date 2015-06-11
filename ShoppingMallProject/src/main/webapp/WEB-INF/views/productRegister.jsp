@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Register in to OpenMarket</title>
+<title>Register Product to OpenMarket</title>
 
 <!-- BOOTSTRAP CORE CSS -->
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
@@ -35,7 +35,7 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					Register into OpenMarket <br> <small>After completing
+					Register Product to OpenMarket <br> <small>After completing
 						the form, Click the 'Register' button</small>
 				</h1>
 			</div>

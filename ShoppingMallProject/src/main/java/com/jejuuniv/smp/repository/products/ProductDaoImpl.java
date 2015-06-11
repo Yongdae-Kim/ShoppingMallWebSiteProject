@@ -41,4 +41,9 @@ public class ProductDaoImpl implements ProductDao {
 		return sqlSession.<Product> selectList("findProductsByName");
 	}
 
+	@Override
+	public Product findLatestProduct() {
+		return sqlSession.selectOne("findLatestProduct");
+	}
+
 }

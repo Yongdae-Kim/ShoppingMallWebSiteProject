@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>OpenMarket List</title>
+<title>My Shopping Cart</title>
 
 <!-- BOOTSTRAP STYLES-->
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
@@ -42,7 +42,7 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					My Cart <br>
+					My Shopping Cart <br>
 					<c:choose>
 						<c:when test="${empty msg}">
 							<small>If you want to buy a product, Click the 'Buy'
