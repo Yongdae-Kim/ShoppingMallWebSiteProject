@@ -21,13 +21,5 @@
 		from user_cart
 		where productId = #{productId}
 	</delete>
-	<select id="isExistedUsersProduct" resultType="int">
-		select count(*)
-		from
-		smp.user_cart uc left outer join smp.products p
-		on uc.productId =
-		p.id WHERE
-		productId = #{productId}
-	</select>
 </mapper>
 

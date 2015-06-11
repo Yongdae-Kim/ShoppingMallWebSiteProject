@@ -30,8 +30,8 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					Register in to OpenMarket <br> <small>If you want to
-						see on the product, Click the 'detail' button.</small>
+					Would you like to buy the product ?<br> <small> Click
+						the 'Buy it' button</small>
 				</h1>
 			</div>
 			<div class="row">

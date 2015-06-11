@@ -9,5 +9,5 @@ public interface CartService {
 
 	List<Product> findProducts(String name);
 
-	int isExistedProduct(long productId);
+	boolean isExistedProduct(String userName, long productId);
 }

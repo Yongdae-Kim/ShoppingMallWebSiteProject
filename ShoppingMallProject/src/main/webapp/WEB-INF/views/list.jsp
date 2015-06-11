@@ -41,8 +41,8 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					Log in to OpenMarket <br> <small>If you want to see on
-						the product, Click the 'detail' button.</small>
+					New Product List <br> <small>If you want to see on the
+						product, Click the 'Detail' button.</small>
 				</h1>
 			</div>
 

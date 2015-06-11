@@ -34,8 +34,7 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					Log in to OpenMarket <br> <small>If you want to see on
-						the product, Click the 'detail' button.</small>
+					My Cart <br> <small>${msg}</small>
 				</h1>
 			</div>
 
@@ -57,6 +56,7 @@
 											<th>Price</th>
 											<th>Date</th>
 											<th>Seller</th>
+											<th>Buy</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -70,10 +70,10 @@
 												<td>${product.price}</td>
 												<td>${product.date}</td>
 												<td>${product.seller}</td>
-												<!-- <form action="chart" method="POST">
-													<input class="btn btn-custom btn-one" type="submit"
-														value="Detail" />
-												</form> -->
+												<td><form action="#" method="POST">
+														<input class="btn btn-custom btn-one" type="submit"
+															value="Buy" />
+													</form></td>
 											</tr>
 										</c:forEach>
 									</tbody>

@@ -29,8 +29,21 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public int isExistedProduct(long productId) {
-		return userCartDao.isExistedUsersProduct(productId);
+	public boolean isExistedProduct(String userName, long productId) {
+
+		boolean isExistedProduct = false;
+
+		List<Product> products = userCartDao.findUsersProducstByName(userName);
+
+		for (Product product : products) {
+
+			if (productId == product.getId()) {
+				isExistedProduct = true;
+			} else {
+				isExistedProduct = false;
+			}
+		}
+		return isExistedProduct;
 	}
 
 }

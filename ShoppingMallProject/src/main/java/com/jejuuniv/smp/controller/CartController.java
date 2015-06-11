@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jejuuniv.smp.model.Product;
 import com.jejuuniv.smp.model.User;
@@ -43,7 +44,7 @@ public class CartController {
 
 	@RequestMapping(value = "/addProduct", method = RequestMethod.POST)
 	public ModelAndView addProduct(@ModelAttribute Product product,
-			HttpSession session) {
+			HttpSession session, RedirectAttributes redirectAttributes) {
 
 		ModelAndView modelAndView = new ModelAndView();
 
@@ -52,10 +53,18 @@ public class CartController {
 		User loginUser = (User) session.getAttribute("loginUser");
 
 		if (loginUser != null) {
-			// 중복되는 상품 등록 시 예외처리 필요
-			System.out.println(loginUser.getName());
-			System.out.println(cartService.isExistedProduct(product.getId()));
-			// cartService.addProduct(loginUser.getName(), product.getId());
+			String userName = loginUser.getName();
+			long productId = product.getId();
+			String msg = "";
+
+			if (!cartService.isExistedProduct(userName, productId)) {
+				cartService.addProduct(userName, productId);
+				msg = "If you want to buy a product, Click the 'Buy' button.";
+
+			} else {
+				msg = "The product has already been registered.";
+			}
+			redirectAttributes.addFlashAttribute("msg", msg);
 			viewName = "redirect:cart";
 		} else {
 			viewName = "redirect:login";
