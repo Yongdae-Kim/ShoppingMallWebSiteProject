@@ -10,7 +10,7 @@
 		WHERE
 		userName=#{userName}
 	</select>
-	<insert id="insertUsersProduct">
+	<insert id="insertUsersProduct" parameterType="Product">
 		insert into
 		user_cart(userName,
 		productId)

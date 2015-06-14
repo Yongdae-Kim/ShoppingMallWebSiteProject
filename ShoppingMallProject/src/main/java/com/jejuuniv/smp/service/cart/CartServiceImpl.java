@@ -15,11 +15,7 @@ public class CartServiceImpl implements CartService {
 	private UserCartDao userCartDao;
 
 	@Override
-	public void addProduct(String userName, long productId) {
-		UserCart userCart = new UserCart();
-		userCart.setUserName(userName);
-		userCart.setProductId(productId);
-
+	public void addProduct(UserCart userCart) {
 		userCartDao.insertUsersProduct(userCart);
 	}
 
@@ -42,5 +38,10 @@ public class CartServiceImpl implements CartService {
 			}
 		}
 		return isExistedProduct;
+	}
+
+	@Override
+	public void deleteProduct(long productId) {
+		userCartDao.deleteUsersProduct(productId);
 	}
 }

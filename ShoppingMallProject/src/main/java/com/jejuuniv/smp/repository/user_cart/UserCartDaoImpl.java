@@ -28,5 +28,4 @@ public class UserCartDaoImpl implements UserCartDao {
 		sqlSession.delete("deleteUsersProduct", productId);
 
 	}
-
 }

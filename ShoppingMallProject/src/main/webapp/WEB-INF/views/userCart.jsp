@@ -92,8 +92,10 @@
 												<td><form action="#" method="POST">
 														<input class="btn btn-info" type="submit" value="Buy" />
 													</form></td>
-												<td><form action="#" method="POST">
-														<input class="btn btn-danger" type="submit" value="Delete" />
+												<td><form action="deleteProduct" method="POST">
+														<input type="hidden" name="productId"
+															value="${product.id}" /> <input class="btn btn-danger"
+															type="submit" value="Delete" />
 													</form></td>
 											</tr>
 										</c:forEach>

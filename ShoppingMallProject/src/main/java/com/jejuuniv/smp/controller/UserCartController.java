@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jejuuniv.smp.model.User;
+import com.jejuuniv.smp.model.UserCart;
 import com.jejuuniv.smp.service.cart.CartService;
 
 @Controller
@@ -55,11 +56,34 @@ public class UserCartController {
 			String userName = loginUser.getName();
 
 			if (!cartService.isExistedProduct(userName, productId)) {
-				cartService.addProduct(userName, productId);
+				cartService.addProduct(new UserCart(userName, productId));
 			} else {
 				redirectAttributes.addFlashAttribute("msg",
 						"The product has already been registered.");
 			}
+			viewName = "redirect:userCart";
+		} else {
+			viewName = "redirect:userLogin";
+		}
+
+		modelAndView.setViewName(viewName);
+
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "/deleteProduct", method = RequestMethod.POST)
+	public ModelAndView deleteProduct(
+			@RequestParam("productId") long productId, HttpSession session,
+			RedirectAttributes redirectAttributes) {
+
+		ModelAndView modelAndView = new ModelAndView();
+
+		String viewName = null;
+
+		User loginUser = (User) session.getAttribute("loginUser");
+
+		if (loginUser != null) {
+			cartService.deleteProduct(productId);
 			viewName = "redirect:userCart";
 		} else {
 			viewName = "redirect:userLogin";
