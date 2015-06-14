@@ -12,8 +12,12 @@ public interface ProductService {
 
 	List<Product> productList();
 
+	List<Product> myProductList(String seller);
+
 	void registeProduct(Product product, HttpSession session);
 
 	Product getLatestProduct();
+
+	void removeProduct(long id);
 
 }

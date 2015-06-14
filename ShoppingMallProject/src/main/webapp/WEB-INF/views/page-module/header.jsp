@@ -23,7 +23,7 @@
 							<a href="productList"> <i class="ion-ios-list-outline"></i></a>
 							<a href="productRegister"> <i class="ion-ios-upload-outline"></i></a>
 							<a href="userCart"> <i class="ion-ios-cart-outline"></i></a>
-							<a href="welcome"> <i class="ion-ios-folder-outline"></i></a>
+							<a href="myProductList"> <i class="ion-ios-folder-outline"></i></a>
 							<a href="userReset"><i class="ion-ios-person"></i></a>
 							<a href="userLogout"> <i class="ion-log-out"></i></a>
 							<h4>Welcome to OpenMarket !!! ${sessionScope.loginUser.name}</h4>

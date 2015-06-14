@@ -85,7 +85,7 @@
 									<form action="productModify" method="POST">
 										<input type="hidden" name="productId" value="${product.id}" />
 										<input name="submit"
-											class="btn btn-custom btn-danger btn-lg btn-block"
+											class="btn btn-custom btn-warning btn-lg btn-block"
 											type="submit" value="Modify" />
 									</form>
 								</div>

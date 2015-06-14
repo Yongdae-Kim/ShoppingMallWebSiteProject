@@ -11,6 +11,16 @@
 		products
 	</select>
 
+	<select id="findMyProducts" parameterType="String" resultType="Product">
+		select
+		id,
+		imgPath,uploadImgPath, name,
+		description, price, date, seller
+		from
+		products
+		where seller = #{seller}
+	</select>
+
 	<insert id="insertProduct" parameterType="Product">
 		insert into
 		products(id, imgPath, uploadImgPath,
@@ -23,7 +33,8 @@
 	</insert>
 
 	<delete id="deleteProduct" parameterType="long">
-		delete from products
+		delete 
+		from products
 		where id = #{id}
 	</delete>
 
@@ -35,16 +46,6 @@
 		from
 		products where
 		id = #{id}
-	</select>
-
-	<select id="findProductsByName" resultType="Product">
-		select
-		id, imgPath,
-		uploadImgPath, name,
-		description, price, date, seller
-		from
-		products where
-		name = #{Name}
 	</select>
 
 	<select id="findLatestProduct" resultType="Product">

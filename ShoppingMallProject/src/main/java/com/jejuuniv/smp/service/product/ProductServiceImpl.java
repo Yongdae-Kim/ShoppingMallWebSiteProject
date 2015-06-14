@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.jejuuniv.smp.model.Product;
 import com.jejuuniv.smp.model.User;
 import com.jejuuniv.smp.repository.products.ProductDao;
+import com.jejuuniv.smp.service.cart.CartService;
 import com.jejuuniv.smp.service.file.FileService;
 import com.jejuuniv.smp.util.CurrentTime;
 
@@ -23,6 +24,9 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private FileService fileService;
 
+	@Autowired
+	private CartService cartService;
+
 	@Override
 	public Product findProduct(long id) {
 		return productDao.findProductById(id);
@@ -31,6 +35,29 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> productList() {
 		return productDao.findAllProducts();
+	}
+
+	@Override
+	public Product getLatestProduct() {
+		return productDao.findLatestProduct();
+	}
+
+	@Override
+	public List<Product> myProductList(String seller) {
+		return productDao.findMyProducts(seller);
+	}
+
+	@Override
+	public void removeProduct(long id) {
+
+		Product existProduct = findProduct(id);
+
+		if (existProduct != null) {
+			String existedUploadImgPath = existProduct.getUploadImgPath();
+			fileService.deleteFile(existedUploadImgPath);
+			productDao.deleteProduct(id);
+			cartService.deleteProduct(id);
+		}
 	}
 
 	@Override
@@ -63,11 +90,6 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
-	@Override
-	public Product getLatestProduct() {
-		return productDao.findLatestProduct();
-	}
-
 	private String getRootPath(HttpSession session) {
 		return session.getServletContext().getRealPath("/") + File.separator;
 	}
@@ -75,4 +97,5 @@ public class ProductServiceImpl implements ProductService {
 	private String getDetailPath() {
 		return "resources" + File.separator + "upload" + File.separator;
 	}
+
 }
