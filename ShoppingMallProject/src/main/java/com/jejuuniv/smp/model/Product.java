@@ -6,9 +6,9 @@ public class Product {
 
 	private long id;
 
-	private String img;
-
 	private MultipartFile imgFile;
+	private String imgPath;
+	private String uploadImgPath;
 
 	private String name;
 	private String description;
@@ -22,17 +22,6 @@ public class Product {
 		super();
 	}
 
-	public Product(String img, String name, String description, int price,
-			String date, String seller) {
-		super();
-		this.img = img;
-		this.name = name;
-		this.description = description;
-		this.price = price;
-		this.date = date;
-		this.seller = seller;
-	}
-
 	public long getId() {
 		return id;
 	}
@@ -41,20 +30,28 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
-	}
-
 	public MultipartFile getImgFile() {
 		return imgFile;
 	}
 
 	public void setImgFile(MultipartFile imgFile) {
 		this.imgFile = imgFile;
+	}
+
+	public String getImgPath() {
+		return imgPath;
+	}
+
+	public void setImgPath(String img) {
+		this.imgPath = img;
+	}
+
+	public String getUploadImgPath() {
+		return uploadImgPath;
+	}
+
+	public void setUploadImgPath(String uploadImgPath) {
+		this.uploadImgPath = uploadImgPath;
 	}
 
 	public String getName() {
@@ -97,4 +94,11 @@ public class Product {
 		this.seller = seller;
 	}
 
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", imgPath=" + imgPath
+				+ ", uploadImgPath=" + uploadImgPath + ", name=" + name
+				+ ", description=" + description + ", price=" + price
+				+ ", date=" + date + ", seller=" + seller + "]";
+	}
 }

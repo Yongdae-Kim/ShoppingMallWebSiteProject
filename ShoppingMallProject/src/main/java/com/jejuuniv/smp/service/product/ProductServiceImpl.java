@@ -1,14 +1,19 @@
 package com.jejuuniv.smp.service.product;
 
+import java.io.File;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jejuuniv.smp.model.Product;
+import com.jejuuniv.smp.model.User;
 import com.jejuuniv.smp.repository.products.ProductDao;
-import com.jejuuniv.smp.service.file.FileUploadService;
+import com.jejuuniv.smp.service.file.FileService;
+import com.jejuuniv.smp.util.CurrentTime;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -16,7 +21,12 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDao productDao;
 
 	@Autowired
-	private FileUploadService fileUploadService;
+	private FileService fileService;
+
+	@Override
+	public Product findProduct(long id) {
+		return productDao.findProductById(id);
+	}
 
 	@Override
 	public List<Product> productList() {
@@ -24,19 +34,45 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void registeProduct(Product product, String path) {
+	public void registeProduct(Product product, HttpSession session) {
 
-		MultipartFile uploadfile = product.getImgFile();
+		MultipartFile inputfile = product.getImgFile();
 
-		String imgPath = fileUploadService.uploadFile(uploadfile, path);
+		String dirPath = getRootPath(session) + getDetailPath();
+		File uploadFile = fileService.uploadFile(inputfile, dirPath);
 
-		product.setImg(imgPath);
+		String imgPath = getDetailPath() + uploadFile.getName();
+		String uploadImgPath = uploadFile.getAbsolutePath();
 
-		productDao.insertProduct(product);
+		User loginUser = (User) session.getAttribute("loginUser");
+		String seller = loginUser.getName();
+
+		product.setImgPath(imgPath);
+		product.setUploadImgPath(uploadImgPath);
+		product.setSeller(seller);
+		product.setDate(CurrentTime.getNow());
+
+		Product existProduct = findProduct(product.getId());
+
+		if (existProduct == null) {
+			productDao.insertProduct(product);
+		} else {
+			String existedUploadImgPath = existProduct.getUploadImgPath();
+			fileService.deleteFile(existedUploadImgPath);
+			productDao.updateProduct(product);
+		}
 	}
 
 	@Override
-	public Product getNewProduct() {
+	public Product getLatestProduct() {
 		return productDao.findLatestProduct();
+	}
+
+	private String getRootPath(HttpSession session) {
+		return session.getServletContext().getRealPath("/") + File.separator;
+	}
+
+	private String getDetailPath() {
+		return "resources" + File.separator + "upload" + File.separator;
 	}
 }

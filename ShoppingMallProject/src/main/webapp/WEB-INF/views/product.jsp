@@ -39,11 +39,12 @@
 						the 'Buy it' button</small>
 				</h1>
 			</div>
+
 			<div class="row">
 
 				<div class="col-md-12">
 					<div class="col-md-6">
-						<img src="${product.img}" alt="${product.img}"
+						<img src="${product.imgPath}" alt="${product.imgPath}"
 							class="img-thumbnail" style="width: 550px; height: 450px;">
 					</div>
 					<div class="col-md-6" style="width: 550px; height: 450px;">
@@ -57,22 +58,40 @@
 						<br>
 					</div>
 					<br>
-					<div class="form-group">
-						<div class="col-md-6">
-							<form action="addProduct" method="POST">
-								<input type="hidden" name="id" value="${product.id}" /> <input
-									name="submit" class="btn btn-custom btn-one btn-lg btn-block"
-									type="submit" value="Add to Cart" />
-							</form>
-						</div>
-						<div class="col-md-6">
-							<form action="#" method="POST">
-								<input name="submit"
-									class="btn btn-custom btn-two btn-lg btn-block" type="submit"
-									value="Buy it" />
-							</form>
-						</div>
-					</div>
+
+					<c:choose>
+						<c:when test="${empty seller}">
+							<div class="form-group">
+								<div class="col-md-6">
+									<form action="addProduct" method="POST">
+										<input type="hidden" name="productId" value="${product.id}" />
+										<input name="submit"
+											class="btn btn-custom btn-one btn-lg btn-block" type="submit"
+											value="Add to Cart" />
+									</form>
+								</div>
+								<div class="col-md-6">
+									<form action="#" method="POST">
+										<input name="submit"
+											class="btn btn-custom btn-two btn-lg btn-block" type="submit"
+											value="Buy it" />
+									</form>
+								</div>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="form-group">
+								<div class="col-md-12">
+									<form action="productModify" method="POST">
+										<input type="hidden" name="productId" value="${product.id}" />
+										<input name="submit"
+											class="btn btn-custom btn-danger btn-lg btn-block"
+											type="submit" value="Modify" />
+									</form>
+								</div>
+							</div>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</div>

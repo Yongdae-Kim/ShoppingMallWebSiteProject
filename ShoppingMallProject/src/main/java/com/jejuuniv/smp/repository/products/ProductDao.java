@@ -16,7 +16,9 @@ public interface ProductDao {
 
 	List<Product> findAllProducts();
 
-	List<Product> findProductByName(String name);
+	// List<Product> findProductByName(String name);
 
 	Product findLatestProduct();
+
+	void updateProduct(Product product);
 }

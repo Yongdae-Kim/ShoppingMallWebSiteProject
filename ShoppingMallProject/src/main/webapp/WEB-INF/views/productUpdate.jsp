@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Register Product to OpenMarket</title>
+<title>Update My Product</title>
 
 <!-- BOOTSTRAP CORE CSS -->
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
@@ -25,7 +25,7 @@
 
 
 </head>
-<body onload='document.registerForm.name.focus();'>
+<body onload='document.updateForm.name.focus();'>
 
 	<!-- HEADER SECTION START-->
 	<jsp:include page="page-module/header.jsp" flush="false" />
@@ -35,15 +35,14 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					Register Product to OpenMarket <br> <small>After
-						completing the form, Click the 'Register' button</small>
+					Update My Product <br> <small>After completing the
+						form, Click the 'Update' button</small>
 				</h1>
 			</div>
 			<div class="row">
 
-				<form name='registerForm' role="form" accept-charset="utf-8"
-					method="post" action="productRegister"
-					enctype="multipart/form-data">
+				<form name='updateForm' role="form" accept-charset="utf-8"
+					method="post" action="productUpdate" enctype="multipart/form-data">
 					<div class="col-md-12">
 						<div class="col-md-6">
 							<img id="img_preview" style="display: none;"
@@ -58,8 +57,8 @@
 								<label>Product Name</label>
 								<div class="input-group">
 									<input type="text" class="form-control" name="name"
-										placeholder="Product Name" required> <span
-										class="input-group-addon"><span
+										placeholder="Product Name" required value="${product.name}">
+									<span class="input-group-addon"><span
 										class="glyphicon glyphicon-asterisk"></span></span>
 								</div>
 							</div>
@@ -67,7 +66,8 @@
 								<label>Product Image</label>
 								<div class="input-group">
 									<input type="file" id="input_file" class="form-control"
-										name="imgFile" placeholder="Product Image" required> <span
+										name="imgFile" value="${product.imgFile}"
+										placeholder="Product Image" required> <span
 										class="input-group-addon"><span
 										class="glyphicon glyphicon-asterisk"></span></span>
 								</div>
@@ -76,8 +76,8 @@
 								<label>Product Price</label>
 								<div class="input-group">
 									<input type="number" class="form-control" name="price"
-										placeholder="Product Price" required> <span
-										class="input-group-addon"><span
+										placeholder="Product Price" value="${product.price}" required>
+									<span class="input-group-addon"><span
 										class="glyphicon glyphicon-asterisk"></span></span>
 								</div>
 							</div>
@@ -85,16 +85,16 @@
 								<label>Product Description</label>
 								<div class="input-group">
 									<textarea name="description" class="form-control" rows="5"
-										required></textarea>
+										required>${product.description}</textarea>
 									<span class="input-group-addon"><span
 										class="glyphicon glyphicon-asterisk"></span></span>
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<input name="submit"
+							<input type="hidden" name="id" value="${product.id}"> <input
 								class="btn btn-custom btn-two btn-lg btn-block" type="submit"
-								value="Register" />
+								value="Update" />
 						</div>
 					</div>
 				</form>

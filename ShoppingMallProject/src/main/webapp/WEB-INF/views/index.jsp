@@ -14,7 +14,7 @@
         <![endif]-->
 <!-- Favicon Icon -->
 <link rel="icon" href="assets/img/favicon.ico" />
-<title>Everybody Buy, Everybody Sell</title>
+<title>Everyone Buy, Everyone Sell</title>
 <!-- BOOTSTRAP CORE CSS -->
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
 <!-- ION ICONS STYLES -->
@@ -43,7 +43,7 @@
 				<div class="row scroll-me">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<h1>OpenMarket</h1>
-						<h2>Everybody Buy, Everybody Sell</h2>
+						<h2>Everyone Buy, Everyone Sell</h2>
 						<h4>
 							You can be a master of the OpenMarket.<br> Sign up right
 							now!
@@ -96,7 +96,8 @@
 				</div>
 
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
-					<img src="${product.img}" class="img-side" alt="" />
+					<img src="${product.imgPath}" class="img-side"
+						style="width: 500px; height: 500px;" alt="" />
 				</div>
 			</div>
 		</div>

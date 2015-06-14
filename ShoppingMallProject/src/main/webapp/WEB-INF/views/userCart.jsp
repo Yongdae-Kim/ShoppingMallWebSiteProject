@@ -74,21 +74,26 @@
 											<th>Date</th>
 											<th>Seller</th>
 											<th>Buy</th>
+											<th>Delete</th>
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach var="product" items="${cartList}"
 											varStatus="status">
 											<tr>
-												<td><img src="${product.img}"
-													class="img-thumbnail img-responsive" alt="${product.img}"
-													width="100" height="100"></td>
-												<td>${product.name}+${product.description}</td>
+												<td><img src="${product.imgPath}"
+													class="img-thumbnail img-responsive"
+													alt="${product.imgPath}" width="100" height="100"></td>
+												<td><span style="font-weight: bold">${product.name}</span><br>
+													<br>${product.description}</td>
 												<td>${product.price}</td>
 												<td>${product.date}</td>
 												<td>${product.seller}</td>
 												<td><form action="#" method="POST">
-														<input class="btn btn-danger" type="submit" value="Buy" />
+														<input class="btn btn-info" type="submit" value="Buy" />
+													</form></td>
+												<td><form action="#" method="POST">
+														<input class="btn btn-danger" type="submit" value="Delete" />
 													</form></td>
 											</tr>
 										</c:forEach>

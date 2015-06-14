@@ -10,38 +10,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jejuuniv.smp.model.Product;
-import com.jejuuniv.smp.model.User;
 import com.jejuuniv.smp.service.product.ProductService;
 
-@RequestMapping(value = "/productRegister")
 @Controller
-public class ProductRegisterController {
+@RequestMapping(value = "/productUpdate")
+public class ProductUpdateController {
 
 	@Autowired
 	private ProductService productService;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView productRegister(HttpSession session) {
-
-		ModelAndView modelAndView = new ModelAndView();
-		String viewName = null;
-
-		User loginUser = (User) session.getAttribute("loginUser");
-		if (loginUser != null) {
-			viewName = "productRegister";
-		} else {
-			viewName = "redirect:userLogin";
-		}
-		modelAndView.setViewName(viewName);
-		return modelAndView;
-	}
-
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView productRegisteForm(@ModelAttribute Product product,
+	public ModelAndView productUpdate(@ModelAttribute Product product,
 			HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
 		productService.registeProduct(product, session);
-		modelAndView.setViewName("redirect:productList");
+		modelAndView.setViewName("redirect:product?productId="
+				+ product.getId());
 		return modelAndView;
 	}
 }

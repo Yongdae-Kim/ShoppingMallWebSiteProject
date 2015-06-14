@@ -31,4 +31,10 @@ public class UserCart {
 		this.productId = productId;
 	}
 
+	@Override
+	public String toString() {
+		return "UserCart [userName=" + userName + ", productId=" + productId
+				+ "]";
+	}
+
 }

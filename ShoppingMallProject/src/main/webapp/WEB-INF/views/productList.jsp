@@ -41,8 +41,8 @@
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					OpenMarket Product List <br> <small>If you want to see on the
-						product, Click the 'Detail' button.</small>
+					OpenMarket Product List <br> <small>If you want to see
+						on the product, Click the 'Detail' button.</small>
 				</h1>
 			</div>
 
@@ -71,24 +71,18 @@
 										<c:forEach var="product" items="${productList}"
 											varStatus="status">
 											<tr>
-												<td><img src="${product.img}"
-													class="img-thumbnail img-responsive" alt="${product.img}"
-													width="100" height="100"></td>
+												<td><img src="${product.imgPath}"
+													class="img-thumbnail img-responsive"
+													alt="${product.imgPath}" width="100" height="100"></td>
 												<td><span style="font-weight: bold">${product.name}</span><br>
 													<br>${product.description}</td>
 												<td>${product.price}</td>
 												<td>${product.date}</td>
 												<td>${product.seller}</td>
-												<td><form action="product" method="POST">
-														<input type="hidden" name="id" value="${product.id}" /> <input
-															type="hidden" name="img" value="${product.img}" /> <input
-															type="hidden" name="name" value="${product.name}" /> <input
-															type="hidden" name="description"
-															value="${product.description}" /> <input type="hidden"
-															name="price" value="${product.price}" /> <input
-															type="hidden" name="date" value="${product.date}" /> <input
-															type="hidden" name="seller" value="${product.seller}" />
-														<input class="btn btn-info" type="submit" value="Detail" />
+												<td><form action="product" method="GET">
+														<input type="hidden" name="productId"
+															value="${product.id}" /> <input class="btn btn-info"
+															type="submit" value="Detail" />
 													</form></td>
 											</tr>
 										</c:forEach>

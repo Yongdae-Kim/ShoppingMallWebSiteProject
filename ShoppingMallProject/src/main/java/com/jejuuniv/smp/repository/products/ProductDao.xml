@@ -4,7 +4,8 @@
 <mapper namespace="com.jejuuniv.smp.repository.products.ProductDao">
 	<select id="findAllProducts" resultType="Product">
 		select
-		id, img, name,
+		id,
+		imgPath,uploadImgPath, name,
 		description, price, date, seller
 		from
 		products
@@ -12,35 +13,53 @@
 
 	<insert id="insertProduct" parameterType="Product">
 		insert into
-		products(id, img,
-		name, description, price, date, seller)
+		products(id, imgPath, uploadImgPath,
+		name, description, price, date,
+		seller)
 		values(#{id},
-		#{img}, #{name},
-		#{description}, #{price}, #{date}, #{seller})
+		#{imgPath}, #{uploadImgPath}, #{name},
+		#{description}, #{price}, #{date},
+		#{seller})
 	</insert>
 
-	<delete id="deleteProduct">
-		delete from products where id = #{id}
+	<delete id="deleteProduct" parameterType="long">
+		delete from products
+		where id = #{id}
 	</delete>
 
 	<select id="findProductById" resultType="Product">
 		select
-		id, img, name,
+		id, imgPath,
+		uploadImgPath, name,
 		description, price, date, seller
 		from
-		products where id = #{id}
+		products where
+		id = #{id}
 	</select>
 
 	<select id="findProductsByName" resultType="Product">
 		select
-		id, img, name,
+		id, imgPath,
+		uploadImgPath, name,
 		description, price, date, seller
 		from
-		products where name = #{Name}
+		products where
+		name = #{Name}
 	</select>
+
 	<select id="findLatestProduct" resultType="Product">
 		select * from products
 		order by date desc limit 1
 	</select>
+
+	<update id="updateProduct" parameterType="Product">
+		update products set
+		id=#{id},
+		imgPath=#{imgPath}, uploadImgPath=#{uploadImgPath},
+		name=#{name},
+		description=#{description}, price=#{price},
+		date=#{date},
+		seller=#{seller} where id = #{id}
+	</update>
 
 </mapper>

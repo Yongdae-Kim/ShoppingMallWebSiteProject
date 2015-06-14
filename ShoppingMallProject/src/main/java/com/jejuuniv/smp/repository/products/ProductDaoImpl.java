@@ -36,14 +36,19 @@ public class ProductDaoImpl implements ProductDao {
 		return sqlSession.<Product> selectList("findAllProducts");
 	}
 
-	@Override
-	public List<Product> findProductByName(String name) {
-		return sqlSession.<Product> selectList("findProductsByName");
-	}
+	// @Override
+	// public List<Product> findProductByName(String name) {
+	// return sqlSession.<Product> selectList("findProductsByName");
+	// }
 
 	@Override
 	public Product findLatestProduct() {
 		return sqlSession.selectOne("findLatestProduct");
 	}
 
+	@Override
+	public void updateProduct(Product product) {
+		sqlSession.update("updateProduct", product);
+
+	}
 }
