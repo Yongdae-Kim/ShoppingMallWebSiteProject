@@ -1,5 +1,7 @@
 package com.jejuuniv.smp.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,14 +28,20 @@ public class UserSignupController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView userSignupForm(@ModelAttribute User input,
-			RedirectAttributes redirectAttributes) {
+	public ModelAndView userSignupForm(@ModelAttribute User user,
+			HttpSession session, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView();
 
 		String viewName = "";
 
-		if (userService.addUser(input)) {
-			redirectAttributes.addFlashAttribute("name", input.getId());
+		User loginUser = (User) session.getAttribute("loginUser");
+
+		if (loginUser != null) {
+			session.setAttribute("loginUser", null);
+		}
+
+		if (userService.addUser(user)) {
+			redirectAttributes.addFlashAttribute("id", user.getId());
 			viewName = "redirect:userLogin";
 		} else {
 			modelAndView.addObject("msg",
