@@ -8,7 +8,7 @@ import com.jejuuniv.smp.model.UserCart;
 public interface CartService {
 	void addProduct(UserCart userCart);
 
-	List<Product> findProducts(String name);
+	List<Product> findProducts(String userId);
 
 	boolean isExistedProduct(String userName, long productId);
 

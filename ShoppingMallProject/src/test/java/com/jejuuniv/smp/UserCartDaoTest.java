@@ -40,7 +40,7 @@ public class UserCartDaoTest {
 		userCartDao.deleteUsersProduct(productId);
 
 		List<Product> usersProducts = userCartDao
-				.findUsersProducstByName(userName);
+				.findUsersProducstByUserId(userName);
 
 		for (Product product : usersProducts) {
 			System.out.println(product.getName());

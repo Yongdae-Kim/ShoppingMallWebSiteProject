@@ -2,17 +2,20 @@ package com.jejuuniv.smp.model;
 
 public class User {
 
+	private String id;
 	private String name;
-
 	private String password;
 
 	public User() {
 		super();
 	}
 
-	public User(String name, String password) {
-		this.name = name;
-		this.password = password;
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -33,7 +36,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", password=" + password + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password
+				+ "]";
 	}
 
 }

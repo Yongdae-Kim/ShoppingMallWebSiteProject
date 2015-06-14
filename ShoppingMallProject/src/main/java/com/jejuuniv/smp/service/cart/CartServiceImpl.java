@@ -20,16 +20,16 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public List<Product> findProducts(String userName) {
-		return userCartDao.findUsersProducstByName(userName);
+	public List<Product> findProducts(String userId) {
+		return userCartDao.findUsersProducstByUserId(userId);
 	}
 
 	@Override
-	public boolean isExistedProduct(String userName, long productId) {
+	public boolean isExistedProduct(String userId, long productId) {
 
 		boolean isExistedProduct = false;
 
-		List<Product> products = userCartDao.findUsersProducstByName(userName);
+		List<Product> products = userCartDao.findUsersProducstByUserId(userId);
 
 		for (Product product : products) {
 			if (productId == product.getId()) {

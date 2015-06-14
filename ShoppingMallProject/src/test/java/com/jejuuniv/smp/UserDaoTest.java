@@ -27,7 +27,7 @@ public class UserDaoTest {
 
 		String name = "scratchback@hanmail.net";
 
-		int userCount = userDao.isExistedUserName(name);
+		int userCount = userDao.isExistedId(name);
 		boolean isExisted;
 
 		if (userCount >= 1) {
@@ -45,11 +45,11 @@ public class UserDaoTest {
 		String name = "scratchback@hanmail.net";
 		String password = "1234";
 
-		if (!(userDao.isExistedUserName(name) >= 1)) {
+		if (!(userDao.isExistedId(name) >= 1)) {
 			User user = new User(name, password);
 			userDao.insertUser(user);
 
-			User addedUser = userDao.findUserByName(name);
+			User addedUser = userDao.findUserById(name);
 
 			assertEquals(name, addedUser.getName());
 			assertEquals(password, addedUser.getPassword());
@@ -62,7 +62,7 @@ public class UserDaoTest {
 		String name = "scratchback@hanmail.net";
 		String password = "1234";
 
-		User user = userDao.findUserByName(name);
+		User user = userDao.findUserById(name);
 
 		assertEquals(name, user.getName());
 		assertEquals(password, user.getPassword());
@@ -88,7 +88,7 @@ public class UserDaoTest {
 		userDao.insertUser(user);
 
 		userDao.deleteUser(name);
-		User deletedUser = userDao.findUserByName(name);
+		User deletedUser = userDao.findUserById(name);
 		assertNull(deletedUser);
 	}
 }

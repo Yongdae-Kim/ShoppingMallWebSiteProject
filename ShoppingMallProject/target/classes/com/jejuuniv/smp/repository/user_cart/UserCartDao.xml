@@ -2,19 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jejuuniv.smp.repository.user_cart.UserCartDao">
-	<select id="findUsersProducstByName" resultType="Product">
+	<select id="findUsersProducstByUserId" resultType="Product">
 		select *
 		from
 		smp.user_cart uc left outer join smp.products p
 		on uc.productId = p.id
 		WHERE
-		userName=#{userName}
+		userId=#{userId}
 	</select>
 	<insert id="insertUsersProduct" parameterType="Product">
 		insert into
-		user_cart(userName,
+		user_cart(userId,
 		productId)
-		values(#{userName}, #{productId})
+		values(#{userId}, #{productId})
 	</insert>
 	<delete id="deleteUsersProduct">
 		delete

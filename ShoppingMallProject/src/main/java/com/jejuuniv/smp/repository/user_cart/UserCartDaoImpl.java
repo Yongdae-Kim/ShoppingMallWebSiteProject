@@ -14,8 +14,8 @@ public class UserCartDaoImpl implements UserCartDao {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<Product> findUsersProducstByName(String userName) {
-		return sqlSession.<Product> selectList("findUsersProducstByName");
+	public List<Product> findUsersProducstByUserId(String userId) {
+		return sqlSession.<Product> selectList("findUsersProducstByUserId");
 	}
 
 	@Override

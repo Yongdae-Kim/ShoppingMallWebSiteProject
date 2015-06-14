@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 	public User findUser(User user) {
 		User selectedUser = null;
 		if (userDao.isMatchedUser(user) >= 1) {
-			selectedUser = userDao.findUserByName(user.getName());
+			selectedUser = userDao.findUserById(user.getId());
 		}
 		return selectedUser;
 	}
@@ -31,9 +31,9 @@ public class UserServiceImpl implements UserService {
 	public boolean addUser(User user) {
 		boolean isUserAdded = false;
 
-		if (userDao.findUserByName(user.getName()) == null) {
+		if (userDao.findUserById(user.getId()) == null) {
 			userDao.insertUser(user);
-			UserRole userRole = new UserRole(user.getName(), Role.ROLE_USER);
+			UserRole userRole = new UserRole(user.getId(), Role.ROLE_USER);
 			userRoleDao.insertUserRole(userRole);
 			isUserAdded = true;
 		} else {

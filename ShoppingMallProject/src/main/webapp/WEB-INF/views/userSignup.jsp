@@ -24,7 +24,7 @@
 
 
 </head>
-<body onload='document.signupForm.name.focus();'>
+<body onload='document.signupForm.id.focus();'>
 	<section id="signup">
 		<div class="container">
 			<div class="page-header">
@@ -38,7 +38,11 @@
 				onsubmit="return passwordValidation()">
 				<div class="form-group">
 					<input type="email" class="form-control input-lg"
-						placeholder="Email" name="name" />
+						placeholder="Email" name="id" />
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control input-lg" placeholder="Name"
+						name="name" />
 				</div>
 				<div class="form-group">
 					<input id="pass" type="password" class="form-control input-lg"

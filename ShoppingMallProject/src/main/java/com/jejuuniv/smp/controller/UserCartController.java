@@ -31,7 +31,7 @@ public class UserCartController {
 
 		if (loginUser != null) {
 			modelAndView.addObject("cartList",
-					cartService.findProducts(loginUser.getName()));
+					cartService.findProducts(loginUser.getId()));
 			viewName = "userCart";
 		} else {
 			viewName = "redirect:userLogin";
@@ -53,10 +53,10 @@ public class UserCartController {
 		User loginUser = (User) session.getAttribute("loginUser");
 
 		if (loginUser != null) {
-			String userName = loginUser.getName();
+			String userId = loginUser.getId();
 
-			if (!cartService.isExistedProduct(userName, productId)) {
-				cartService.addProduct(new UserCart(userName, productId));
+			if (!cartService.isExistedProduct(userId, productId)) {
+				cartService.addProduct(new UserCart(userId, productId));
 			} else {
 				redirectAttributes.addFlashAttribute("msg",
 						"The product has already been registered.");

@@ -2,25 +2,25 @@ package com.jejuuniv.smp.model;
 
 public class UserCart {
 
-	private String userName;
+	private String userId;
 	private long productId;
 
 	public UserCart() {
 		super();
 	}
 
-	public UserCart(String userName, long productId) {
+	public UserCart(String userId, long productId) {
 		super();
-		this.userName = userName;
+		this.userId = userId;
 		this.productId = productId;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public long getProductId() {
@@ -33,8 +33,6 @@ public class UserCart {
 
 	@Override
 	public String toString() {
-		return "UserCart [userName=" + userName + ", productId=" + productId
-				+ "]";
+		return "UserCart [userId=" + userId + ", productId=" + productId + "]";
 	}
-
 }

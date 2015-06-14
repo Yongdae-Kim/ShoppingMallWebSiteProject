@@ -9,10 +9,9 @@ import com.jejuuniv.smp.model.UserCart;
 
 @Repository
 public interface UserCartDao {
-	List<Product> findUsersProducstByName(String userName);
+	List<Product> findUsersProducstByUserId(String userId);
 
 	void deleteUsersProduct(long productId);
 
 	void insertUsersProduct(UserCart userCart);
-
 }

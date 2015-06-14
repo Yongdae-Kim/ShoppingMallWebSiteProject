@@ -8,7 +8,7 @@ import com.jejuuniv.smp.model.User;
 
 @Repository
 public interface UserDao {
-	User findUserByName(String name);
+	User findUserById(String id);
 
 	void insertUser(User user);
 
@@ -16,7 +16,7 @@ public interface UserDao {
 
 	List<User> findAllUsers();
 
-	int isExistedUserName(String name);
+	int isExistedId(String id);
 
 	int isMatchedUser(User user);
 

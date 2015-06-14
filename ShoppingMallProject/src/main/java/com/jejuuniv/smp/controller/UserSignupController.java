@@ -33,7 +33,7 @@ public class UserSignupController {
 		String viewName = "";
 
 		if (userService.addUser(input)) {
-			redirectAttributes.addFlashAttribute("name", input.getName());
+			redirectAttributes.addFlashAttribute("name", input.getId());
 			viewName = "redirect:userLogin";
 		} else {
 			modelAndView.addObject("msg",

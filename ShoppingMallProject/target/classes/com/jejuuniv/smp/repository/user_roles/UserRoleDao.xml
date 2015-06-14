@@ -3,31 +3,31 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jejuuniv.smp.repository.user_roles.UserRoleDao">
 	<select id="findAllUserRoles" resultType="UserRole">
-		select id, name, role
+		select id, userId, role
 		from
 		user_roles
 	</select>
 	<insert id="insertUserRole" parameterType="UserRole">
 		insert into
-		user_roles(id, name,
+		user_roles(id, userId,
 		role)
-		values(#{id}, #{name}, #{role})
+		values(#{id}, #{userId}, #{role})
 	</insert>
 	<delete id="deleteUserRole">
 		delete
 		from user_roles
-		where name = #{name}
+		where userId = #{userId}
 	</delete>
 	<select id="findUserRoleByName" resultType="UserRole">
 		select id, name, role
 		from
 		user_roles
-		where name = #{name}
+		where userId = #{userId}
 	</select>
 	<select id="hasUserRole" resultType="int">
 		select count(*)
 		from
 		user_roles
-		where name=#{name}
+		where userId=#{userId}
 	</select>
 </mapper>

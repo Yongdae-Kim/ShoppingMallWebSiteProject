@@ -17,8 +17,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User findUserByName(String name) {
-		return sqlSession.<User> selectOne("findUserByName", name);
+	public User findUserById(String id) {
+		return sqlSession.<User> selectOne("findUserById", id);
 	}
 
 	@Override
@@ -37,8 +37,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public int isExistedUserName(String name) {
-		return sqlSession.selectOne("isExistedUserName", name);
+	public int isExistedId(String id) {
+		return sqlSession.selectOne("isExistedUserId", id);
 	}
 
 	@Override

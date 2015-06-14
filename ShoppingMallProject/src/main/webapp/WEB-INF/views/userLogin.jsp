@@ -24,7 +24,7 @@
 <script src="resources/js/ie-10-view-port.js"></script>
 
 </head>
-<body onload='document.loginForm.name.focus();'>
+<body onload='document.loginForm.id.focus();'>
 	<section id="login">
 		<div class="container">
 			<div class="page-header">
@@ -37,7 +37,7 @@
 				action="userLogin">
 				<div class="form-group">
 					<input type="email" class="form-control input-lg"
-						placeholder="Email" name="name" value="${name}" />
+						placeholder="Email" name="id" value="${id}" />
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control input-lg"

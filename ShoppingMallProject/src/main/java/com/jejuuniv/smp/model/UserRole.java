@@ -7,16 +7,16 @@ public class UserRole {
 
 	private long id;
 
-	private String name;
+	private String userId;
 	private Role role;
 
 	public UserRole() {
 		super();
 	}
 
-	public UserRole(String name, Role role) {
+	public UserRole(String userId, Role role) {
 		super();
-		this.name = name;
+		this.userId = userId;
 		this.role = role;
 	}
 
@@ -28,12 +28,12 @@ public class UserRole {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public Role getRole() {
@@ -43,10 +43,4 @@ public class UserRole {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-
-	@Override
-	public String toString() {
-		return "UserRole [id=" + id + ", name=" + name + ", role=" + role + "]";
-	}
-
 }
