@@ -29,7 +29,7 @@
 	</bean>
 
 	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.jejuuniv.smp.repository" />
+		<property name="basePackage" value="classpath*:com.jejuuniv.smp.repository" />
 		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
 	</bean>
 
