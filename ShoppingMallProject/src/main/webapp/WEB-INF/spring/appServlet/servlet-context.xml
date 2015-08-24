@@ -28,7 +28,7 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	</beans:bean>
 
-	<beans:import resource="classpath:repository.xml" />
+	<beans:import resource="repository.xml" />
 
 	<context:component-scan base-package="com.jejuuniv.smp" />
 
