@@ -31,20 +31,20 @@ public class UserCartDaoTest {
 
 	@Test
 	public void deleteUsersProductTesting() {
-		String userName = "scratchback@hanmail.net";
-		long productId = 4;
-
-		UserCart userCart = new UserCart(userName, productId);
-		userCartDao.insertUsersProduct(userCart);
-
-		userCartDao.deleteUsersProduct(productId);
-
-		List<Product> usersProducts = userCartDao
-				.findUsersProducstByUserId(userName);
-
-		for (Product product : usersProducts) {
-			System.out.println(product.getName());
-		}
+//		String userName = "teach@hanmail.net";
+//		long productId = 4;
+//
+//		UserCart userCart = new UserCart(userName, productId);
+//		userCartDao.insertUsersProduct(userCart);
+//
+//		userCartDao.deleteUsersProduct(productId);
+//
+//		List<Product> usersProducts = userCartDao
+//				.findUsersProducstByUserId(userName);
+//
+//		for (Product product : usersProducts) {
+//			System.out.println(product.getName());
+//		}
 
 	}
 }
