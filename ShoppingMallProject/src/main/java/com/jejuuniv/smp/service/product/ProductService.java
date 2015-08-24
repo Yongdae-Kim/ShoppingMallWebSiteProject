@@ -16,7 +16,7 @@ public interface ProductService {
 
 	void registeProduct(Product product, HttpSession session);
 
-//	Product getLatestProduct();
+	Product getLatestProduct();
 
 	void removeProduct(long id);
 

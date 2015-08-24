@@ -37,10 +37,10 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.findAllProducts();
 	}
 
-//	@Override
-//	public Product getLatestProduct() {
-//		return productDao.findLatestProduct();
-//	}
+	@Override
+	public Product getLatestProduct() {
+		return productDao.findLatestProduct();
+	}
 
 	@Override
 	public List<Product> myProductList(String seller) {

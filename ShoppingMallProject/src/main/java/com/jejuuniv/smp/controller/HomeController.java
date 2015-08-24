@@ -19,8 +19,8 @@ public class HomeController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView login() {
 		ModelAndView modelAndView = new ModelAndView();
-//		Product product = productService.getLatestProduct();
-//		modelAndView.addObject("product", product);
+		Product product = productService.getLatestProduct();
+		modelAndView.addObject("product", product);
 		modelAndView.setViewName("index");
 		return modelAndView;
 	}
