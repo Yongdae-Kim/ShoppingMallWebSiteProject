@@ -48,10 +48,10 @@
 		id = #{id}
 	</select>
 
-	<select id="findLatestProduct" resultType="Product">
+	<!-- <select id="findLatestProduct" resultType="Product">
 		select * from products
 		order by date desc limit 1
-	</select>
+	</select> -->
 
 	<update id="updateProduct" parameterType="Product">
 		update products set

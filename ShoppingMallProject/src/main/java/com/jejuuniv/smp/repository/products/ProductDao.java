@@ -18,7 +18,7 @@ public interface ProductDao {
 
 	List<Product> findMyProducts(String seller);
 
-	Product findLatestProduct();
+//	Product findLatestProduct();
 
 	void updateProduct(Product product);
 }
