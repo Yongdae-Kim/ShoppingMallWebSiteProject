@@ -10,7 +10,7 @@
 		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://127.0.0.1:3306/smp?characterEncoding=UTF-8" />
+			value="jdbc:mysql://localhost:3306/smp?characterEncoding=UTF-8" />
 		<property name="username" value="root" />
 		<property name="password" value="1234" />
 	</bean>
@@ -32,5 +32,7 @@
 		<property name="basePackage" value="com.jejuuniv.smp.repository" />
 		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
 	</bean>
+
+
 
 </beans>
